@@ -24,6 +24,35 @@ class OrderItem extends Model
         'subtotal'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($orderItem) {
+            if ($orderItem->qty <= 0) {
+                throw new \Exception('Quantity must be greater than 0');
+            }
+        });
+
+        static::updating(function ($orderItem) {
+            if ($orderItem->qty <= 0) {
+                throw new \Exception('Quantity must be greater than 0');
+            }
+        });
+
+        static::creating(function ($orderItem) {
+            if ($orderItem->harga_saat_order<= 0) {
+                throw new \Exception('Harga must be greater than 0');
+            }
+        });
+
+        static::updating(function ($orderItem) {
+            if ($orderItem->harga_saat_order <= 0) {
+                throw new \Exception('Harga must be greater than 0');
+            }
+        });
+    }
+
     /**
      * Get the order that owns the order item.
      *

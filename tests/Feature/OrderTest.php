@@ -848,7 +848,9 @@ class OrderTest extends TestCase
     /** @test */
     public function cannot_create_order_item_with_zero_quantity()
     {
-        $this->expectException(\Illuminate\Database\QueryException::class);
+        // Ganti expectException dari QueryException ke Exception biasa
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Quantity must be greater than 0');
 
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
@@ -862,15 +864,23 @@ class OrderTest extends TestCase
             'order_id' => $order->id,
             'barang_id' => $this->barang1->id,
             'harga_saat_order' => 100000,
-            'qty' => 0,
+            'qty' => 0, // Ini akan trigger exception dari model boot
             'subtotal' => 0,
+        ]);
+
+        // Optional: Verifikasi data tidak masuk ke database
+        $this->assertDatabaseMissing('order_items', [
+            'order_id' => $order->id,
+            'barang_id' => $this->barang1->id,
         ]);
     }
 
     /** @test */
-    public function cannot_create_order_item_with_negative_price()
+    public function cannot_create_order_item_with_negative_quantity()
     {
-        $this->expectException(\Illuminate\Database\QueryException::class);
+        // Ganti expectException dari QueryException ke Exception biasa
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Quantity must be greater than 0');
 
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
@@ -883,9 +893,46 @@ class OrderTest extends TestCase
         OrderItem::create([
             'order_id' => $order->id,
             'barang_id' => $this->barang1->id,
-            'harga_saat_order' => -100000,
-            'qty' => 1,
-            'subtotal' => -100000,
+            'harga_saat_order' => 100000,
+            'qty' => -3, // Ini akan trigger exception dari model boot
+            'subtotal' => 0,
+        ]);
+
+        // Optional: Verifikasi data tidak masuk ke database
+        $this->assertDatabaseMissing('order_items', [
+            'order_id' => $order->id,
+            'barang_id' => $this->barang1->id,
+        ]);
+    }
+
+
+    /** @test */
+    public function cannot_create_order_item_with_negative_price()
+    {
+        // Ganti expectException dari QueryException ke Exception biasa
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Harga must be greater than 0');
+
+        $order = Order::create([
+            'kode_order' => $this->generateKodeOrder(),
+            'user_id' => $this->user->id,
+            'total_harga' => 100000,
+            'status' => 'bayar',
+            'metode_pembayaran' => 'cash',
+        ]);
+
+        OrderItem::create([
+            'order_id' => $order->id,
+            'barang_id' => $this->barang1->id,
+            'harga_saat_order' => 0,
+            'qty' => 10,
+            'subtotal' => 10,
+        ]);
+
+        // Optional: Verifikasi data tidak masuk ke database
+        $this->assertDatabaseMissing('order_items', [
+            'order_id' => $order->id,
+            'barang_id' => $this->barang1->id,
         ]);
     }
 
@@ -894,7 +941,8 @@ class OrderTest extends TestCase
     {
         $this->barang1->update(['stok' => 5]);
 
-        $this->expectException(\Illuminate\Database\QueryException::class);
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Ordered quantity exceeds available stock');
 
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
