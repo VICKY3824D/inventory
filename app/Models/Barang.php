@@ -18,6 +18,8 @@ class Barang extends Model
         'created_by',
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function kategori()
     {
         return $this->belongsTo(Category::class, 'category_id');
@@ -26,5 +28,10 @@ class Barang extends Model
     public function creator()
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }

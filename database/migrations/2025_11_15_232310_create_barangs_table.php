@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('created_by');
             $table->string('nama_barang', 200);
-            $table->string('ukuran', 100)->nullable();
+            $table->string('ukuran', 100);
             $table->integer('stok')->default(0);
             $table->timestamps();
             $table->softDeletes();
