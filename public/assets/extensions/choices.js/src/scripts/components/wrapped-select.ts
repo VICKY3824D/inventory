@@ -47,7 +47,7 @@ export default class WrappedSelect extends WrappedElement {
       fragment.appendChild(option);
     };
 
-    // Add each list item to list
+    // Add each list barang to list
     options.forEach((optionData) => addOptionToFragment(optionData));
 
     this.appendDocFragment(fragment);

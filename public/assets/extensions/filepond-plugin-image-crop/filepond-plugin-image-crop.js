@@ -29,7 +29,7 @@
       isFile = utils.isFile,
       getNumericAspectRatioFromString = utils.getNumericAspectRatioFromString;
 
-    // tests if crop is allowed on this item
+    // tests if crop is allowed on this barang
     var allowCrop = function allowCrop(item, query) {
       return !(!isImage(item.file) || !query('GET_ALLOW_IMAGE_CROP'));
     };
@@ -49,7 +49,7 @@
       );
     };
 
-    // extend item methods
+    // extend barang methods
     addFilter('DID_CREATE_ITEM', function(item, _ref2) {
       var query = _ref2.query;
 

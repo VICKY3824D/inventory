@@ -54,7 +54,7 @@ class OrderItem extends Model
     }
 
     /**
-     * Get the order that owns the order item.
+     * Get the order that owns the order barang.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Order, \App\Models\OrderItem>
      */
@@ -64,7 +64,7 @@ class OrderItem extends Model
     }
 
     /**
-     * Get the barang that owns the order item.
+     * Get the barang that owns the order barang.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\App\Models\Barang, \App\Models\OrderItem>
      */

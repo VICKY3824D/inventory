@@ -3,7 +3,7 @@ import isDesktop from '../helper/isDesktop'
 
 /**
  * Calculate nested children height in sidebar menu
-* @param {HTMLElement} el 
+* @param {HTMLElement} el
 */
 const calculateChildrenHeight = (el, deep = false) => {
   const children = el.children
@@ -64,7 +64,7 @@ class Sidebar {
       }
     }
 
-    let sidebarItems = document.querySelectorAll(".sidebar-item.has-sub")
+    let sidebarItems = document.querySelectorAll(".sidebar-barang.has-sub")
     for (var i = 0; i < sidebarItems.length; i++) {
       let sidebarItem = sidebarItems[i]
 
@@ -78,7 +78,7 @@ class Sidebar {
 
 
       // If submenu has submenu
-      const submenuItems = sidebarItem.querySelectorAll('.submenu-item.has-sub')
+      const submenuItems = sidebarItem.querySelectorAll('.submenu-barang.has-sub')
       submenuItems.forEach(item => {
         item.addEventListener('click', () => {
           const submenuLevelTwo = item.querySelector('.submenu')
@@ -101,7 +101,7 @@ class Sidebar {
 
     // Scroll into active sidebar
     setTimeout(() => {
-      const activeSidebarItem = document.querySelector(".sidebar-item.active");
+      const activeSidebarItem = document.querySelector(".sidebar-barang.active");
       if (activeSidebarItem) {
         this.forceElementVisibility(activeSidebarItem);
       }
@@ -232,7 +232,7 @@ const onFirstLoad = (sidebarEL) => {
   }
 
   // Get submenus size
-  let submenus = document.querySelectorAll(".sidebar-item.has-sub .submenu")
+  let submenus = document.querySelectorAll(".sidebar-barang.has-sub .submenu")
   for (var i = 0; i < submenus.length; i++) {
     let submenu = submenus[i]
     const sidebarItem = submenu.parentElement
@@ -250,7 +250,7 @@ const reInit_SubMenuHeight = (sidebarEl) => {
   if (!sidebarEl) return
 
   // Get submenus size
-  let submenus = document.querySelectorAll(".sidebar-item.has-sub .submenu")
+  let submenus = document.querySelectorAll(".sidebar-barang.has-sub .submenu")
   for (var i = 0; i < submenus.length; i++) {
     let submenu = submenus[i]
     const sidebarItem = submenu.parentElement
@@ -285,9 +285,9 @@ if (sidebarEl) {
 
 // NOTE use this to reinitialize sidebar with recalculate height
 // NOTE fixed dropdown smooth animation
-/* 
+/*
 const sidebar = new window.Sidebar(document.getElementById("sidebar"), {
   recalculateHeight: true
-}) 
+})
 */
 

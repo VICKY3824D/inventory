@@ -178,7 +178,7 @@ function create(input, value) {
         throw new ParchmentError("Unable to create " + input + " blot");
     }
     var BlotClass = match;
-    var node = 
+    var node =
     // @ts-ignore
     input instanceof Node || input['nodeType'] === Node.TEXT_NODE ? input : BlotClass.create(value);
     return new BlotClass(node, value);
@@ -5492,7 +5492,7 @@ var Picker = function () {
       });
       item.addEventListener('keydown', function (event) {
         switch (event.keyCode) {
-          // Allows the "Enter" key to select an item
+          // Allows the "Enter" key to select an barang
           case _keyboard2.default.keys.ENTER:
             _this2.selectItem(item, true);
             event.preventDefault();
@@ -9074,7 +9074,7 @@ function deltaEndsWith(delta, text) {
 function isLine(node) {
   if (node.childNodes.length === 0) return false; // Exclude embed blocks
   var style = computeStyle(node);
-  return ['block', 'list-item'].indexOf(style.display) > -1;
+  return ['block', 'list-barang'].indexOf(style.display) > -1;
 }
 
 function traverse(node, elementMatchers, textMatchers) {
@@ -9161,7 +9161,7 @@ function matchIgnore() {
 
 function matchIndent(node, delta) {
   var match = _parchment2.default.query(node);
-  if (match == null || match.blotName !== 'list-item' || !deltaEndsWith(delta, '\n')) {
+  if (match == null || match.blotName !== 'list-barang' || !deltaEndsWith(delta, '\n')) {
     return delta;
   }
   var indent = -1,
@@ -9680,7 +9680,7 @@ var ColorPicker = function (_Picker) {
 
     _this.label.innerHTML = label;
     _this.container.classList.add('ql-color-picker');
-    [].slice.call(_this.container.querySelectorAll('.ql-picker-item'), 0, 7).forEach(function (item) {
+    [].slice.call(_this.container.querySelectorAll('.ql-picker-barang'), 0, 7).forEach(function (item) {
       item.classList.add('ql-primary');
     });
     return _this;
@@ -9750,7 +9750,7 @@ var IconPicker = function (_Picker) {
     var _this = _possibleConstructorReturn(this, (IconPicker.__proto__ || Object.getPrototypeOf(IconPicker)).call(this, select));
 
     _this.container.classList.add('ql-icon-picker');
-    [].forEach.call(_this.container.querySelectorAll('.ql-picker-item'), function (item) {
+    [].forEach.call(_this.container.querySelectorAll('.ql-picker-barang'), function (item) {
       item.innerHTML = icons[item.getAttribute('data-value') || ''];
     });
     _this.defaultItem = _this.container.querySelector('.ql-selected');
@@ -10461,7 +10461,7 @@ var ListItem = function (_Block) {
   return ListItem;
 }(_block2.default);
 
-ListItem.blotName = 'list-item';
+ListItem.blotName = 'list-barang';
 ListItem.tagName = 'LI';
 
 var List = function (_Container) {
@@ -10565,7 +10565,7 @@ var List = function (_Container) {
 List.blotName = 'list';
 List.scope = _parchment2.default.Scope.BLOCK_BLOT;
 List.tagName = ['OL', 'UL'];
-List.defaultChild = 'list-item';
+List.defaultChild = 'list-barang';
 List.allowedChildren = [ListItem];
 
 exports.ListItem = ListItem;

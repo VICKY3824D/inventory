@@ -2077,11 +2077,11 @@
     if (focusableElements.length) {
       index = index + increment;
 
-      // rollover to first item
+      // rollover to first barang
       if (index === focusableElements.length) {
         index = 0;
 
-        // go to last item
+        // go to last barang
       } else if (index === -1) {
         index = focusableElements.length - 1;
       }

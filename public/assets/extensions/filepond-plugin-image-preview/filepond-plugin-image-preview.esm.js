@@ -1347,7 +1347,7 @@ const createImageWrapperView = _ => {
     // no images to update, exit
     if (!root.ref.images.length) return;
 
-    // no item found, exit
+    // no barang found, exit
     const item = root.query('GET_ITEM', { id: props.id });
     if (!item) return;
 
@@ -1404,7 +1404,7 @@ const createImageWrapperView = _ => {
     // get url to file (we'll revoke it later on when done)
     const fileURL = URL.createObjectURL(item.file);
 
-    // determine image size of this item
+    // determine image size of this barang
     getImageSize(fileURL, (width, height) => {
       // we can now scale the panel to the final size
       root.dispatch('DID_IMAGE_PREVIEW_CALCULATE_SIZE', {
@@ -1684,15 +1684,15 @@ const plugin = fpAPI => {
     // get reference to created view
     const { is, view, query } = viewAPI;
 
-    // only hook up to item view and only if is enabled for this cropper
+    // only hook up to barang view and only if is enabled for this cropper
     if (!is('file') || !query('GET_ALLOW_IMAGE_PREVIEW')) return;
 
-    // create the image preview plugin, but only do so if the item is an image
+    // create the image preview plugin, but only do so if the barang is an image
     const didLoadItem = ({ root, props }) => {
       const { id } = props;
       const item = query('GET_ITEM', id);
 
-      // item could theoretically have been removed in the mean time
+      // barang could theoretically have been removed in the mean time
       if (!item || !isFile(item.file) || item.archived) return;
 
       // get the file object
@@ -1740,7 +1740,7 @@ const plugin = fpAPI => {
 
       let { id } = props;
 
-      // get item
+      // get barang
       const item = root.query('GET_ITEM', { id });
       if (!item) return;
 
@@ -1776,7 +1776,7 @@ const plugin = fpAPI => {
       // image aspect ratio
       const imageAspectRatio = imageHeight / imageWidth;
 
-      // we need the item to get to the crop size
+      // we need the barang to get to the crop size
       const previewAspectRatio =
         (item.getMetadata('crop') || {}).aspectRatio || imageAspectRatio;
 
@@ -1840,7 +1840,7 @@ const plugin = fpAPI => {
           // don't do anything while hidden
           if (root.rect.element.hidden) return;
 
-          // resize the item panel
+          // resize the barang panel
           if (root.ref.shouldRescale) {
             rescaleItem(root, props);
             root.ref.shouldRescale = false;

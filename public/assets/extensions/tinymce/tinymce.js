@@ -387,7 +387,7 @@
       const r = [];
       for (let i = 0, len = xs.length; i < len; ++i) {
         if (!isArray$1(xs[i])) {
-          throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
+          throw new Error('Arr.flatten barang ' + i + ' was not an array, input: ' + xs);
         }
         nativePush.apply(r, xs[i]);
       }
@@ -7086,11 +7086,11 @@
       });
       registerOption('visual_table_class', {
         processor: 'string',
-        default: 'mce-item-table'
+        default: 'mce-barang-table'
       });
       registerOption('visual_anchor_class', {
         processor: 'string',
-        default: 'mce-item-anchor'
+        default: 'mce-barang-anchor'
       });
       registerOption('iframe_aria_text', {
         processor: 'string',
@@ -7765,7 +7765,7 @@
     const isContentEditableTrue$1 = isContentEditableTrue$3;
     const isContentEditableFalse$7 = isContentEditableFalse$b;
     const isMedia = isMedia$2;
-    const isBlockLike = matchStyleValues('display', 'block table table-cell table-caption list-item');
+    const isBlockLike = matchStyleValues('display', 'block table table-cell table-caption list-barang');
     const isCaretContainer = isCaretContainer$2;
     const isCaretContainerBlock = isCaretContainerBlock$1;
     const isElement$2 = isElement$6;

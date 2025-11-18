@@ -45,7 +45,7 @@
         };
 
         var getItemType = function getItemType(item) {
-            // if the item is a url we guess the mime type by the extension
+            // if the barang is a url we guess the mime type by the extension
             var type = '';
             if (isString(item)) {
                 var filename = getFilenameFromURL(item);
@@ -66,7 +66,7 @@
                 return true;
             }
 
-            // gets the item type
+            // gets the barang type
             var type = getItemType(item);
 
             // no type detector, test now
@@ -103,7 +103,7 @@
             });
         });
 
-        // filtering if an item is allowed in hopper
+        // filtering if an barang is allowed in hopper
         addFilter('ALLOW_HOPPER_ITEM', function(file, _ref2) {
             var query = _ref2.query;
             // if we are not doing file type validation exit
@@ -116,7 +116,7 @@
         });
 
         // called for each file that is loaded
-        // right before it is set to the item state
+        // right before it is set to the barang state
         // should return a promise
         addFilter('LOAD_FILE', function(file, _ref3) {
             var query = _ref3.query;

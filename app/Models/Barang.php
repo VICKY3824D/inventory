@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Barang extends Model
@@ -15,6 +18,8 @@ class Barang extends Model
         'nama_barang',
         'ukuran',
         'stok',
+        'img',
+        'deskripsi',
         'created_by',
     ];
 
@@ -33,5 +38,17 @@ class Barang extends Model
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    // Tambahkan relasi ke Price (harga terbaru)
+    public function latestPrice(): HasOne
+    {
+        return $this->hasOne(Price::class, 'product_id')->latestOfMany();
+    }
+
+    // Atau untuk semua history harga
+    public function prices(): HasMany
+    {
+        return $this->hasMany(Price::class, 'product_id');
     }
 }

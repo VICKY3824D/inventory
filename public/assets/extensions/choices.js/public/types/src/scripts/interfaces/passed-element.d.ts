@@ -17,7 +17,7 @@ export interface PassedElement extends HTMLElement {
  */
 export interface EventMap {
     /**
-     * Triggered each time an item is added (programmatically or by the user).
+     * Triggered each time an barang is added (programmatically or by the user).
      *
      * **Input types affected:** text, select-one, select-multiple
      *
@@ -31,7 +31,7 @@ export interface EventMap {
         keyCode: number;
     }>;
     /**
-     * Triggered each time an item is removed (programmatically or by the user).
+     * Triggered each time an barang is removed (programmatically or by the user).
      *
      * **Input types affected:** text, select-one, select-multiple
      *
@@ -44,7 +44,7 @@ export interface EventMap {
         groupValue: string;
     }>;
     /**
-     * Triggered each time an item is highlighted.
+     * Triggered each time an barang is highlighted.
      *
      * **Input types affected:** text, select-multiple
      *
@@ -57,7 +57,7 @@ export interface EventMap {
         groupValue: string;
     }>;
     /**
-     * Triggered each time an item is unhighlighted.
+     * Triggered each time an barang is unhighlighted.
      *
      * **Input types affected:** text, select-multiple
      *
@@ -80,7 +80,7 @@ export interface EventMap {
         choice: Choice;
     }>;
     /**
-     * Triggered each time an item is added/removed **by a user**.
+     * Triggered each time an barang is added/removed **by a user**.
      *
      * **Input types affected:** text, select-one, select-multiple
      *

@@ -14,7 +14,7 @@ const isImage = file => /^image/.test(file.type);
 const plugin = ({ addFilter, utils }) => {
   const { Type, isFile, getNumericAspectRatioFromString } = utils;
 
-  // tests if crop is allowed on this item
+  // tests if crop is allowed on this barang
   const allowCrop = (item, query) =>
     !(!isImage(item.file) || !query('GET_ALLOW_IMAGE_CROP'));
 
@@ -25,7 +25,7 @@ const plugin = ({ addFilter, utils }) => {
   const updateCrop = (item, obj) =>
     item.setMetadata('crop', Object.assign({}, item.getMetadata('crop'), obj));
 
-  // extend item methods
+  // extend barang methods
   addFilter('DID_CREATE_ITEM', (item, { query }) => {
     item.extend('setImageCrop', crop => {
       if (!allowCrop(item, query) || !isObject(center)) return;

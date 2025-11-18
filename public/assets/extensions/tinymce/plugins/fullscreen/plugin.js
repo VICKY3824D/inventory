@@ -216,7 +216,7 @@
       const r = [];
       for (let i = 0, len = xs.length; i < len; ++i) {
         if (!isArray(xs[i])) {
-          throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
+          throw new Error('Arr.flatten barang ' + i + ' was not an array, input: ' + xs);
         }
         nativePush.apply(r, xs[i]);
       }

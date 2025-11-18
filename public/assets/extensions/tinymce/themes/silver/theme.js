@@ -300,7 +300,7 @@
       const r = [];
       for (let i = 0, len = xs.length; i < len; ++i) {
         if (!isArray(xs[i])) {
-          throw new Error('Arr.flatten item ' + i + ' was not an array, input: ' + xs);
+          throw new Error('Arr.flatten barang ' + i + ' was not an array, input: ' + xs);
         }
         nativePush.apply(r, xs[i]);
       }
@@ -2227,7 +2227,7 @@
     const postPaste = prefixName('paste.post');
     const receive = prefixName('receive');
     const execute$5 = prefixName('execute');
-    const focusItem = prefixName('focus.item');
+    const focusItem = prefixName('focus.barang');
     const tap = alloy.tap;
     const longpress = prefixName('longpress');
     const sandboxClose = prefixName('sandbox.close');
@@ -2757,21 +2757,21 @@
         [detachedFromDom()]: [
           baseBehaviour,
           'representing',
-          'item-events',
+          'barang-events',
           'tooltipping'
         ],
         [mousedown()]: [
           'focusing',
           baseBehaviour,
-          'item-type-events'
+          'barang-type-events'
         ],
         [touchstart()]: [
           'focusing',
           baseBehaviour,
-          'item-type-events'
+          'barang-type-events'
         ],
         [mouseover()]: [
-          'item-type-events',
+          'barang-type-events',
           'tooltipping'
         ],
         [receive()]: [
@@ -6981,9 +6981,9 @@
       ]));
     };
 
-    const hoverEvent = 'alloy.item-hover';
-    const focusEvent = 'alloy.item-focus';
-    const toggledEvent = 'alloy.item-toggled';
+    const hoverEvent = 'alloy.barang-hover';
+    const focusEvent = 'alloy.barang-focus';
+    const toggledEvent = 'alloy.barang-toggled';
     const onHover = item => {
       if (search(item.element).isNone() || Focusing.isFocused(item)) {
         if (!Focusing.isFocused(item)) {
@@ -7043,7 +7043,7 @@
             initialValue: detail.data
           }
         }),
-        config('item-type-events', [
+        config('barang-type-events', [
           ...pointerEvents(),
           run$1(mouseover(), onHover),
           run$1(focusItem(), Focusing.focus)
@@ -7081,7 +7081,7 @@
       output$1('builder', builder$1)
     ];
 
-    const owner$2 = constant$1('item-widget');
+    const owner$2 = constant$1('barang-widget');
     const parts$h = constant$1([required({
         name: 'widget',
         overrides: detail => {
@@ -7217,7 +7217,7 @@
     const parts$g = constant$1([group({
         factory: {
           sketch: spec => {
-            const itemInfo = asRawOrDie$1('menu.spec item', itemSchema$2, spec);
+            const itemInfo = asRawOrDie$1('menu.spec barang', itemSchema$2, spec);
             return itemInfo.builder(itemInfo);
           }
         },
@@ -7443,8 +7443,8 @@
       extractPreparedMenu
     };
 
-    const onMenuItemHighlightedEvent = generate$6('tiered-menu-item-highlight');
-    const onMenuItemDehighlightedEvent = generate$6('tiered-menu-item-dehighlight');
+    const onMenuItemHighlightedEvent = generate$6('tiered-menu-barang-highlight');
+    const onMenuItemDehighlightedEvent = generate$6('tiered-menu-barang-dehighlight');
 
     var HighlightOnOpen;
     (function (HighlightOnOpen) {
@@ -7635,7 +7635,7 @@
           const target = simulatedEvent.event.target;
           component.getSystem().getByDom(target).each(item => {
             const itemValue = getItemValue(item);
-            if (itemValue.indexOf('collapse-item') === 0) {
+            if (itemValue.indexOf('collapse-barang') === 0) {
               collapseLeft(component, item);
             }
             expandRight(component, item, ExpandHighlightDecision.HighlightSubmenu).fold(() => {
@@ -7734,7 +7734,7 @@
         events
       };
     };
-    const collapseItem$1 = constant$1('collapse-item');
+    const collapseItem$1 = constant$1('collapse-barang');
 
     const tieredData = (primary, menus, expansions) => ({
       primary,
@@ -10510,7 +10510,7 @@
     });
 
     const refetchTriggerEvent = generate$6('refetch-trigger-event');
-    const redirectMenuItemInteractionEvent = generate$6('redirect-menu-item-interaction');
+    const redirectMenuItemInteractionEvent = generate$6('redirect-menu-barang-interaction');
 
     const menuSearcherClass = 'tox-menu__searcher';
     const findWithinSandbox = sandboxComp => {
@@ -10606,7 +10606,7 @@
             ...item.dom,
             attributes: {
               ...(_a = item.dom.attributes) !== null && _a !== void 0 ? _a : {},
-              'id': generate$6('aria-item-search-result-id'),
+              'id': generate$6('aria-barang-search-result-id'),
               'aria-selected': 'false'
             }
           }
@@ -11343,7 +11343,7 @@
         'disabling',
         'alloy.base.behaviour',
         'toggling',
-        'item-events'
+        'barang-events'
       ]
     };
 
@@ -11358,7 +11358,7 @@
         eventOrder: menuItemEventOrder,
         hasSubmenu: spec.triggersSubmenu,
         itemBehaviours: derive$1([
-          config('item-events', [
+          config('barang-events', [
             onMenuItemExecute(spec, itemResponse),
             onControlAttached(spec, editorOffCell),
             onControlDetached(spec, editorOffCell)
@@ -11534,7 +11534,7 @@
       const domTitle = ariaLabel.map(label => ({
         attributes: {
           title: global$8.translate(label),
-          id: generate$6('menu-item')
+          id: generate$6('menu-barang')
         }
       })).getOr({});
       return {
@@ -13366,7 +13366,7 @@
       case 'fancymenuitem':
         return createFancyMenuItem(item).fold(handleError, d => fancy(d, backstage));
       default: {
-          console.error('Unknown item in general menu', item);
+          console.error('Unknown barang in general menu', item);
           return Optional.none();
         }
       }
@@ -14323,8 +14323,8 @@
         return (_a = icons[icon]) !== null && _a !== void 0 ? _a : icon;
       };
       const runOnItem = f => (comp, se) => {
-        closest$1(se.event.target, '[data-collection-item-value]').each(target => {
-          f(comp, se, target, get$f(target, 'data-collection-item-value'));
+        closest$1(se.event.target, '[data-collection-barang-value]').each(target => {
+          f(comp, se, target, get$f(target, 'data-collection-barang-value'));
         });
       };
       const setContents = (comp, items) => {
@@ -16817,7 +16817,7 @@
           mousedown: [
             'focusing',
             'alloy.base.behaviour',
-            'item-type-events',
+            'barang-type-events',
             'normal-dropdown-events'
           ],
           [attachedToDom()]: [
@@ -16907,7 +16907,7 @@
       };
     };
     const generateValueIfRequired = item => {
-      const itemValue = get$g(item, 'value').getOrThunk(() => generate$6('generated-menu-item'));
+      const itemValue = get$g(item, 'value').getOrThunk(() => generate$6('generated-menu-barang'));
       return deepMerge({ value: itemValue }, item);
     };
     const expand = (items, menuItems) => {
@@ -20293,8 +20293,8 @@
     const factory$f = (detail, components, _spec, _external) => {
       const setItems = (list, items) => {
         getListContainer(list).fold(() => {
-          console.error('Custom List was defined to not be a shell, but no item container was specified in components');
-          throw new Error('Custom List was defined to not be a shell, but no item container was specified in components');
+          console.error('Custom List was defined to not be a shell, but no barang container was specified in components');
+          throw new Error('Custom List was defined to not be a shell, but no barang container was specified in components');
         }, container => {
           const itemComps = Replacing.contents(container);
           const numListsRequired = items.length;
@@ -22852,7 +22852,7 @@
             })]),
           makeItem: () => renderToolbar({
             type: spec.type,
-            uid: generate$6('multiple-toolbar-item'),
+            uid: generate$6('multiple-toolbar-barang'),
             cyclicKeying: false,
             initGroups: [],
             providers: spec.providers,
@@ -27470,7 +27470,7 @@
       const renderElement = (name, element, index) => Button.sketch({
         dom: {
           tag: 'div',
-          classes: ['tox-statusbar__path-item'],
+          classes: ['tox-statusbar__path-barang'],
           attributes: {
             'data-index': index,
             'aria-level': index + 1
@@ -29302,7 +29302,7 @@
           value: tab.name,
           dom: {
             tag: 'div',
-            classes: ['tox-dialog__body-nav-item']
+            classes: ['tox-dialog__body-nav-barang']
           },
           components: [text$2(backstage.shared.providers.translate(tab.title))],
           view: () => {
@@ -29362,7 +29362,7 @@
             components: [Tabbar.parts.tabs({})],
             markers: {
               tabClass: 'tox-tab',
-              selectedClass: 'tox-dialog__body-nav-item--active'
+              selectedClass: 'tox-dialog__body-nav-barang--active'
             },
             tabbarBehaviours: derive$1([Tabstopping.config({})])
           }),

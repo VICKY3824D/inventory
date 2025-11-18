@@ -15,7 +15,7 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.nl',
   '  <dd>Windows, Linux of macOS: Ctrl+F9\n' +
   '</dl>\n' +
   '\n' +
-  '<p>De navigatie start bij het eerste UI-item, dat wordt gemarkeerd of onderstreept als het eerste item zich in\n' +
+  '<p>De navigatie start bij het eerste UI-barang, dat wordt gemarkeerd of onderstreept als het eerste barang zich in\n' +
   '  in het elementenpad van de voettekst bevindt.</p>\n' +
   '\n' +
   '<h1>Navigeren tussen UI-secties</h1>\n' +
@@ -68,10 +68,10 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.nl',
   "<p>Als de huidige focus is ingesteld 'bovenaan' een bepaalde UI-sectie, kun je op de toets <strong>Esc</strong> drukken\n" +
   '  om de toetsenbordnavigatie af te sluiten.</p>\n' +
   '\n' +
-  '<h1>Een menu-item of werkbalkknop uitvoeren</h1>\n' +
+  '<h1>Een menu-barang of werkbalkknop uitvoeren</h1>\n' +
   '\n' +
-  '<p>Als het gewenste menu-item of de gewenste werkbalkknop is gemarkeerd, kun je op <strong>Return</strong>, <strong>Enter</strong>\n' +
-  '  of de <strong>spatiebalk</strong> drukken om het item uit te voeren.</p>\n' +
+  '<p>Als het gewenste menu-barang of de gewenste werkbalkknop is gemarkeerd, kun je op <strong>Return</strong>, <strong>Enter</strong>\n' +
+  '  of de <strong>spatiebalk</strong> drukken om het barang uit te voeren.</p>\n' +
   '\n' +
   '<h1>Navigeren in dialoogvensters zonder tabblad</h1>\n' +
   '\n' +

@@ -178,7 +178,7 @@ function create(input, value) {
         throw new ParchmentError("Unable to create " + input + " blot");
     }
     var BlotClass = match;
-    var node = 
+    var node =
     // @ts-ignore
     input instanceof Node || input['nodeType'] === Node.TEXT_NODE ? input : BlotClass.create(value);
     return new BlotClass(node, value);
@@ -8354,7 +8354,7 @@ function deltaEndsWith(delta, text) {
 function isLine(node) {
   if (node.childNodes.length === 0) return false; // Exclude embed blocks
   var style = computeStyle(node);
-  return ['block', 'list-item'].indexOf(style.display) > -1;
+  return ['block', 'list-barang'].indexOf(style.display) > -1;
 }
 
 function traverse(node, elementMatchers, textMatchers) {
@@ -8441,7 +8441,7 @@ function matchIgnore() {
 
 function matchIndent(node, delta) {
   var match = _parchment2.default.query(node);
-  if (match == null || match.blotName !== 'list-item' || !deltaEndsWith(delta, '\n')) {
+  if (match == null || match.blotName !== 'list-barang' || !deltaEndsWith(delta, '\n')) {
     return delta;
   }
   var indent = -1,

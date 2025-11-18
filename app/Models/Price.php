@@ -22,6 +22,6 @@ class Price extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Barang::class);
+        return $this->belongsTo(Barang::class, 'product_id'); // tambahkan foreign key
     }
 }

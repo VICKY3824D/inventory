@@ -15,7 +15,7 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.id',
   '  <dd>Windows, Linux, atau macOS: Ctrl+F9\n' +
   '</dl>\n' +
   '\n' +
-  '<p>Navigasi akan dimulai dari item pertama UI, yang akan disorot atau digarisbawahi di\n' +
+  '<p>Navigasi akan dimulai dari barang pertama UI, yang akan disorot atau digarisbawahi di\n' +
   '  alur elemen Footer.</p>\n' +
   '\n' +
   '<h1>Berpindah antar-bagian UI</h1>\n' +
@@ -51,14 +51,14 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.id',
   '  <li>berpindah-pindah antar-menu di dalam bilah menu.</li>\n' +
   '  <li>membuka sub-menu di dalam menu.</li>\n' +
   '  <li>berpindah-pindah antar-tombol di dalam grup bilah alat.</li>\n' +
-  '  <li>berpindah-pindah antar-item di dalam alur elemen footer.</li>\n' +
+  '  <li>berpindah-pindah antar-barang di dalam alur elemen footer.</li>\n' +
   '</ul>\n' +
   '\n' +
   '<p>Tombol panah <strong>Bawah</strong> dan <strong>Atas</strong> untuk</p>\n' +
   '\n' +
   '<ul>\n' +
-  '  <li>berpindah-pindah antar-item menu di dalam menu.</li>\n' +
-  '  <li>berpindah-pindah antar-item di dalam menu pop-up bilah alat.</li>\n' +
+  '  <li>berpindah-pindah antar-barang menu di dalam menu.</li>\n' +
+  '  <li>berpindah-pindah antar-barang di dalam menu pop-up bilah alat.</li>\n' +
   '</ul>\n' +
   '\n' +
   '<p>Tombol <strong>Panah</strong> hanya bergerak di dalam bagian UI yang difokuskan.</p>\n' +
@@ -68,10 +68,10 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.id',
   '<p>Jika fokus sedang berada di ‘atas’ bagian UI tertentu, menekan tombol <strong>Esc</strong> juga dapat mengeluarkan fokus\n' +
   '  dari seluruh navigasi keyboard.</p>\n' +
   '\n' +
-  '<h1>Menjalankan item menu atau tombol bilah alat</h1>\n' +
+  '<h1>Menjalankan barang menu atau tombol bilah alat</h1>\n' +
   '\n' +
-  '<p>Jika item menu atau tombol bilah alat yang diinginkan tersorot, tekan <strong>Return</strong>, <strong>Enter</strong>,\n' +
-  '  atau <strong>Spasi</strong> untuk menjalankan item.</p>\n' +
+  '<p>Jika barang menu atau tombol bilah alat yang diinginkan tersorot, tekan <strong>Return</strong>, <strong>Enter</strong>,\n' +
+  '  atau <strong>Spasi</strong> untuk menjalankan barang.</p>\n' +
   '\n' +
   '<h1>Berpindah dalam dialog tanpa tab</h1>\n' +
   '\n' +

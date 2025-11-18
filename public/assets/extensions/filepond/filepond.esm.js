@@ -1988,12 +1988,12 @@ const getItemByQuery = (items, query) => {
         return items[query] || null;
     }
 
-    // if query is item, get the id
+    // if query is barang, get the id
     if (typeof query === 'object') {
         query = query.id;
     }
 
-    // assume query is a string and return item by id
+    // assume query is a string and return barang by id
     return items.find(item => item.id === query) || null;
 };
 
@@ -2130,12 +2130,12 @@ const queries = state => ({
 const hasRoomForItem = state => {
     const count = getActiveItems(state.items).length;
 
-    // if cannot have multiple items, to add one item it should currently not contain items
+    // if cannot have multiple items, to add one barang it should currently not contain items
     if (!state.options.allowMultiple) {
         return count === 0;
     }
 
-    // if allows multiple items, we check if a max item count has been set, if not, there's no limit
+    // if allows multiple items, we check if a max barang count has been set, if not, there's no limit
     const maxFileCount = state.options.maxFiles;
     if (maxFileCount === null) {
         return true;
@@ -2168,7 +2168,7 @@ const insertItem = (items, item, index) => {
     // limit the index to the size of the items array
     index = limit(index, 0, items.length);
 
-    // add item to array
+    // add barang to array
     arrayInsert(items, index, item);
 
     // expose
@@ -3026,7 +3026,7 @@ const processFileChunked = (
             // stop here if aborted, might have happened in between request and callback
             if (state.aborted) return;
 
-            // pass back to item so we can use it if something goes wrong
+            // pass back to barang so we can use it if something goes wrong
             transfer(serverId);
 
             // store internally
@@ -3493,11 +3493,11 @@ const deepCloneObject = src => {
 };
 
 const createItem = (origin = null, serverFileReference = null, file = null) => {
-    // unique id for this item, is used to identify the item across views
+    // unique id for this barang, is used to identify the barang across views
     const id = getUniqueId();
 
     /**
-     * Internal item state
+     * Internal barang state
      */
     const state = {
         // is archived
@@ -3524,7 +3524,7 @@ const createItem = (origin = null, serverFileReference = null, file = null) => {
         // is aborted
         processingAborted: false,
 
-        // current item status
+        // current barang status
         status: serverFileReference ? ItemStatus.PROCESSING_COMPLETE : ItemStatus.INIT,
 
         // active processes
@@ -3536,14 +3536,14 @@ const createItem = (origin = null, serverFileReference = null, file = null) => {
     let abortProcessingRequestComplete = null;
 
     /**
-     * Externally added item metadata
+     * Externally added barang metadata
      */
     const metadata = {};
 
-    // item data
+    // barang data
     const setStatus = status => (state.status = status);
 
-    // fire event unless the item has been archived
+    // fire event unless the barang has been archived
     const fire = (event, ...params) => {
         if (state.released || state.frozen) return;
         api.fire(event, ...params);
@@ -3559,7 +3559,7 @@ const createItem = (origin = null, serverFileReference = null, file = null) => {
     // logic to load a file
     //
     const load = (source, loader, onload) => {
-        // remember the original item source
+        // remember the original barang source
         state.source = source;
 
         // source is known
@@ -3940,7 +3940,7 @@ const getItemIndexByQuery = (items, query) => {
         return -1;
     }
 
-    // return item by id (or -1 if not found)
+    // return barang by id (or -1 if not found)
     return items.findIndex(item => item.id === query);
 };
 
@@ -4036,7 +4036,7 @@ const sortItems = (state, compare) => {
     state.items.sort((a, b) => compare(createItemAPI(a), createItemAPI(b)));
 };
 
-// returns item based on state
+// returns barang based on state
 const getItemByQueryFromState = (state, itemHandler) => ({
     query,
     success = () => {},
@@ -4081,7 +4081,7 @@ const actions = (dispatch, query, state) => ({
         let activeItems = getActiveItems(state.items);
 
         activeItems.forEach(item => {
-            // if item not is in new value, remove
+            // if barang not is in new value, remove
             if (!files.find(file => file.source === item.source || file.source === item.file)) {
                 dispatch('REMOVE_ITEM', { query: item, remove: false });
             }
@@ -4144,7 +4144,7 @@ const actions = (dispatch, query, state) => ({
                 return;
             }
 
-            // if is local item we need to enable upload button so change can be propagated to server
+            // if is local barang we need to enable upload button so change can be propagated to server
             if (item.origin === FileOrigin.LOCAL) {
                 dispatch('DID_LOAD_ITEM', {
                     id: item.id,
@@ -4270,7 +4270,7 @@ const actions = (dispatch, query, state) => ({
         // test if there's still room in the list of files
         if (!hasRoomForItem(state)) {
             // if multiple allowed, we can't replace
-            // or if only a single item is allowed but we're not allowed to replace it we exit
+            // or if only a single barang is allowed but we're not allowed to replace it we exit
             if (
                 state.options.allowMultiple ||
                 (!state.options.allowMultiple && !state.options.allowReplace)
@@ -4287,8 +4287,8 @@ const actions = (dispatch, query, state) => ({
                 return;
             }
 
-            // let's replace the item
-            // id of first item we're about to remove
+            // let's replace the barang
+            // id of first barang we're about to remove
             const item = getActiveItems(state.items)[0];
 
             // if has been processed remove it from the server as well
@@ -4319,7 +4319,7 @@ const actions = (dispatch, query, state) => ({
                 if (forceRevert) return;
             }
 
-            // remove first item as it will be replaced by this item
+            // remove first barang as it will be replaced by this barang
             dispatch('REMOVE_ITEM', { query: item.id });
         }
 
@@ -4331,7 +4331,7 @@ const actions = (dispatch, query, state) => ({
                 ? FileOrigin.LIMBO
                 : FileOrigin.INPUT;
 
-        // create a new blank item
+        // create a new blank barang
         const item = createItem(
             // where did this file come from
             origin,
@@ -4348,7 +4348,7 @@ const actions = (dispatch, query, state) => ({
             item.setMetadata(key, options.metadata[key]);
         });
 
-        // created the item, let plugins add methods
+        // created the barang, let plugins add methods
         applyFilters('DID_CREATE_ITEM', item, { query, dispatch });
 
         // where to insert new items
@@ -4359,7 +4359,7 @@ const actions = (dispatch, query, state) => ({
             index = itemInsertLocation === 'before' ? -1 : state.items.length;
         }
 
-        // add item to list
+        // add barang to list
         insertItem(state.items, item, index);
 
         // sort items in list
@@ -4367,10 +4367,10 @@ const actions = (dispatch, query, state) => ({
             sortItems(state, itemInsertLocation);
         }
 
-        // get a quick reference to the item id
+        // get a quick reference to the barang id
         const id = item.id;
 
-        // observe item events
+        // observe barang events
         item.on('init', () => {
             dispatch('DID_INIT_ITEM', { id });
         });
@@ -4502,7 +4502,7 @@ const actions = (dispatch, query, state) => ({
                 );
             };
 
-            // item loaded, allow plugins to
+            // barang loaded, allow plugins to
             // - read data (quickly)
             // - add metadata
             applyFilterChain('DID_LOAD_ITEM', item, { query, dispatch })
@@ -4569,7 +4569,7 @@ const actions = (dispatch, query, state) => ({
             dispatch('DID_DEFINE_VALUE', { id, value: null });
         });
 
-        // let view know the item has been inserted
+        // let view know the barang has been inserted
         dispatch('DID_ADD_ITEM', { id, index, interactionMethod });
 
         listUpdated(dispatch, state);
@@ -4606,19 +4606,19 @@ const actions = (dispatch, query, state) => ({
     },
 
     REQUEST_PREPARE_OUTPUT: ({ item, success, failure = () => {} }) => {
-        // error response if item archived
+        // error response if barang archived
         const err = {
             error: createResponse('error', 0, 'Item not found'),
             file: null,
         };
 
-        // don't handle archived items, an item could have been archived (load aborted) while waiting to be prepared
+        // don't handle archived items, an barang could have been archived (load aborted) while waiting to be prepared
         if (item.archived) return failure(err);
 
         // allow plugins to alter the file data
         applyFilterChain('PREPARE_OUTPUT', item.file, { query, item }).then(result => {
             applyFilterChain('COMPLETE_PREPARE_OUTPUT', result, { query, item }).then(result => {
-                // don't handle archived items, an item could have been archived (load aborted) while being prepared
+                // don't handle archived items, an barang could have been archived (load aborted) while being prepared
                 if (item.archived) return failure(err);
 
                 // we done!
@@ -4636,14 +4636,14 @@ const actions = (dispatch, query, state) => ({
             sortItems(state, itemInsertLocation);
         }
 
-        // let interface know the item has loaded
+        // let interface know the barang has loaded
         dispatch('DID_LOAD_ITEM', {
             id: item.id,
             error: null,
             serverFileReference: item.origin === FileOrigin.INPUT ? null : source,
         });
 
-        // item has been successfully loaded and added to the
+        // barang has been successfully loaded and added to the
         // list of items so can now be safely returned for use
         success(createItemAPI(item));
 
@@ -4768,17 +4768,17 @@ const actions = (dispatch, query, state) => ({
             // no items left
             if (!queueEntry) return;
 
-            // get item reference
+            // get barang reference
             const { id, success, failure } = queueEntry;
             const itemReference = getItemByQuery(state.items, id);
 
-            // if item was archived while in queue, jump to next
+            // if barang was archived while in queue, jump to next
             if (!itemReference || itemReference.archived) {
                 processNext();
                 return;
             }
 
-            // process queued item
+            // process queued barang
             dispatch('PROCESS_ITEM', { query: id, success, failure }, true);
         };
 
@@ -4864,10 +4864,10 @@ const actions = (dispatch, query, state) => ({
             // get id reference
             const id = item.id;
 
-            // archive the item, this does not remove it from the list
+            // archive the barang, this does not remove it from the list
             getItemById(state.items, id).archive();
 
-            // tell the view the item has been removed
+            // tell the view the barang has been removed
             dispatch('DID_REMOVE_ITEM', { error: null, id, item });
 
             // now the list has been modified
@@ -5401,48 +5401,48 @@ const Buttons = {
     AbortItemLoad: {
         label: 'GET_LABEL_BUTTON_ABORT_ITEM_LOAD',
         action: 'ABORT_ITEM_LOAD',
-        className: 'filepond--action-abort-item-load',
+        className: 'filepond--action-abort-barang-load',
         align: 'LOAD_INDICATOR_POSITION', // right
     },
     RetryItemLoad: {
         label: 'GET_LABEL_BUTTON_RETRY_ITEM_LOAD',
         action: 'RETRY_ITEM_LOAD',
         icon: 'GET_ICON_RETRY',
-        className: 'filepond--action-retry-item-load',
+        className: 'filepond--action-retry-barang-load',
         align: 'BUTTON_PROCESS_ITEM_POSITION', // right
     },
     RemoveItem: {
         label: 'GET_LABEL_BUTTON_REMOVE_ITEM',
         action: 'REQUEST_REMOVE_ITEM',
         icon: 'GET_ICON_REMOVE',
-        className: 'filepond--action-remove-item',
+        className: 'filepond--action-remove-barang',
         align: 'BUTTON_REMOVE_ITEM_POSITION', // left
     },
     ProcessItem: {
         label: 'GET_LABEL_BUTTON_PROCESS_ITEM',
         action: 'REQUEST_ITEM_PROCESSING',
         icon: 'GET_ICON_PROCESS',
-        className: 'filepond--action-process-item',
+        className: 'filepond--action-process-barang',
         align: 'BUTTON_PROCESS_ITEM_POSITION', // right
     },
     AbortItemProcessing: {
         label: 'GET_LABEL_BUTTON_ABORT_ITEM_PROCESSING',
         action: 'ABORT_ITEM_PROCESSING',
-        className: 'filepond--action-abort-item-processing',
+        className: 'filepond--action-abort-barang-processing',
         align: 'BUTTON_PROCESS_ITEM_POSITION', // right
     },
     RetryItemProcessing: {
         label: 'GET_LABEL_BUTTON_RETRY_ITEM_PROCESSING',
         action: 'RETRY_ITEM_PROCESSING',
         icon: 'GET_ICON_RETRY',
-        className: 'filepond--action-retry-item-processing',
+        className: 'filepond--action-retry-barang-processing',
         align: 'BUTTON_PROCESS_ITEM_POSITION', // right
     },
     RevertItemProcessing: {
         label: 'GET_LABEL_BUTTON_UNDO_ITEM_PROCESSING',
         action: 'REQUEST_REVERT_ITEM_PROCESSING',
         icon: 'GET_ICON_UNDO',
-        className: 'filepond--action-revert-item-processing',
+        className: 'filepond--action-revert-barang-processing',
         align: 'BUTTON_PROCESS_ITEM_POSITION', // right
     },
 };
@@ -5608,7 +5608,7 @@ const create$4 = ({ root, props }) => {
     // is async set up
     const isAsync = root.query('IS_ASYNC');
 
-    // should align remove item buttons
+    // should align remove barang buttons
     const alignRemoveItemButton = root.query('GET_STYLE_BUTTON_REMOVE_ITEM_ALIGN');
 
     // enabled buttons array
@@ -6152,7 +6152,7 @@ const write$4 = createRoute(
             root.height = root.rect.element.width * aspectRatio;
         }
 
-        // sync panel height with item height
+        // sync panel height with barang height
         if (shouldOptimize) {
             root.ref.panel.height = null;
         }
@@ -6192,7 +6192,7 @@ const item = createView({
 });
 
 var getItemsPerRow = (horizontalSpace, itemWidth) => {
-    // add one pixel leeway, when using percentages for item width total items can be 1.99 per row
+    // add one pixel leeway, when using percentages for barang width total items can be 1.99 per row
 
     return Math.max(1, Math.floor((horizontalSpace + 1) / itemWidth));
 };
@@ -6208,7 +6208,7 @@ const getItemIndexByPosition = (view, children, positionInView) => {
     // -1, don't move items to accomodate (either add to top or bottom)
     if (l === 0 || positionInView.top < children[0].rect.element.top) return -1;
 
-    // let's get the item width
+    // let's get the barang width
     const item = children[0];
     const itemRect = item.rect.element;
     const itemHorizontalMargin = itemRect.marginLeft + itemRect.marginRight;
@@ -6288,7 +6288,7 @@ const create$8 = ({ root }) => {
 };
 
 /**
- * Inserts a new item
+ * Inserts a new barang
  * @param root
  * @param action
  */
@@ -6380,7 +6380,7 @@ const introItemView = (item, x, y, vx, vy) => {
 };
 
 /**
- * Removes an existing item
+ * Removes an existing barang
  * @param root
  * @param action
  */
@@ -6416,7 +6416,7 @@ const getItemWidth = child =>
 const dragItem = ({ root, action }) => {
     const { id, dragState } = action;
 
-    // reference to item
+    // reference to barang
     const item = root.query('GET_ITEM', { id });
 
     // get the view matching the given id
@@ -6447,7 +6447,7 @@ const dragItem = ({ root, action }) => {
     dropAreaDimensions.setHeight = dragHeight * rows;
     dropAreaDimensions.setWidth = dragWidth * cols;
 
-    // get new index of dragged item
+    // get new index of dragged barang
     var location = {
         y: Math.floor(dragPosition.y / dragHeight),
         x: Math.floor(dragPosition.x / dragWidth),
@@ -6498,7 +6498,7 @@ const dragItem = ({ root, action }) => {
     const index = cols > 1 ? location.getGridIndex() : location.getColIndex();
     root.dispatch('MOVE_ITEM', { query: view, index });
 
-    // if the index of the item changed, dispatch reorder action
+    // if the index of the barang changed, dispatch reorder action
     const currentIndex = dragState.getIndex();
 
     if (currentIndex === undefined || currentIndex !== index) {
@@ -6552,7 +6552,7 @@ const write$5 = ({ root, props, actions, shouldOptimize }) => {
         ? getItemIndexByPosition(root, children, dragCoordinates)
         : null;
 
-    // add index is used to reserve the dropped/added item index till the actual item is rendered
+    // add index is used to reserve the dropped/added barang index till the actual barang is rendered
     const addIndex = root.ref.addIndex || null;
 
     // add index no longer needed till possibly next draw
@@ -7146,7 +7146,7 @@ const didLoadItem$1 = ({ root, action }) => {
     // store server ref in hidden input
     if (action.serverFileReference !== null) field.value = action.serverFileReference;
 
-    // store file item in file input
+    // store file barang in file input
     if (!root.query('SHOULD_UPDATE_FILE_INPUT')) return;
 
     const fileItem = root.query('GET_ITEM', action.id);
@@ -7263,7 +7263,7 @@ const getFiles = dataTransfer =>
             // only keep file system items (files and directories)
             .filter(item => isFileSystemItem(item))
 
-            // map each item to promise
+            // map each barang to promise
             .map(item => getFilesFromItem(item));
 
         // if is empty, see if we can extract some info from the files property as a fallback
@@ -8103,7 +8103,7 @@ const write$9 = ({ root, props, actions }) => {
     const maxItems = isMultiItem ? root.query('GET_MAX_FILES') || MAX_FILES_LIMIT : 1;
     const atMaxCapacity = totalItems === maxItems;
 
-    // action used to add item
+    // action used to add barang
     const addAction = actions.find(action => action.type === 'DID_ADD_ITEM');
 
     // if reached max capacity and we've just reached it
@@ -8362,7 +8362,7 @@ const exceedsMaxFiles = (root, items) => {
     // total amount of items being dragged
     const totalBrowseItems = items.length;
 
-    // if does not allow multiple items and dragging more than one item
+    // if does not allow multiple items and dragging more than one barang
     if (!allowMultiple && totalBrowseItems > 1) {
         root.dispatch('DID_THROW_MAX_FILES', {
             source: items,
@@ -8375,7 +8375,7 @@ const exceedsMaxFiles = (root, items) => {
     maxItems = allowMultiple ? maxItems : 1;
 
     if (!allowMultiple && allowReplace) {
-        // There is only one item, so there is room to replace or add an item
+        // There is only one barang, so there is room to replace or add an barang
         return false;
     }
 
@@ -8443,7 +8443,7 @@ const toggleDrop = root => {
         );
 
         hopper.onload = (items, position) => {
-            // get item children elements and sort based on list sort
+            // get barang children elements and sort based on list sort
             const list = root.ref.list.childViews[0];
             const visibleChildren = list.childViews.filter(child => child.rect.element.height);
             const children = root
@@ -8761,7 +8761,7 @@ const createApp = (initialOptions = {}) => {
             event.output = data.file;
         }
 
-        // only source is available, else add item if possible
+        // only source is available, else add barang if possible
         if (data.source) {
             event.file = data.source;
         } else if (data.item || data.id) {
@@ -8926,10 +8926,10 @@ const createApp = (initialOptions = {}) => {
             query = undefined;
         }
 
-        // request item removal
+        // request barang removal
         store.dispatch('REMOVE_ITEM', { ...options, query });
 
-        // see if item has been removed
+        // see if barang has been removed
         return store.query('GET_ACTIVE_ITEM', query) === null;
     };
 

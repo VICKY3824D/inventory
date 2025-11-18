@@ -77,7 +77,7 @@ export default class DatasetController {
        * @param {array} data - data array. Example [1,3,4]
        * @param {number} start - start index
        * @param {number} count - number of items to parse
-       * @returns {object} parsed item - item containing index and a parsed value
+       * @returns {object} parsed barang - barang containing index and a parsed value
        * for each scale id.
        * Example: {xScale0: 0, yScale0: 1}
        * @protected
@@ -89,7 +89,7 @@ export default class DatasetController {
        * @param {array} data - data array. Example [[1,2],[3,4]]
        * @param {number} start - start index
        * @param {number} count - number of items to parse
-       * @returns {object} parsed item - item containing index and a parsed value
+       * @returns {object} parsed barang - barang containing index and a parsed value
        * for each scale id.
        * Example: {x: 0, y: 1}
        * @protected
@@ -101,7 +101,7 @@ export default class DatasetController {
        * @param {array} data - data array. Example [{x:1, y:5}, {x:2, y:10}]
        * @param {number} start - start index
        * @param {number} count - number of items to parse
-       * @returns {object} parsed item - item containing index and a parsed value
+       * @returns {object} parsed barang - barang containing index and a parsed value
        * for each scale id. _custom is optional
        * Example: {xScale0: 0, yScale0: 1, _custom: {r: 10, foo: 'bar'}}
        * @protected

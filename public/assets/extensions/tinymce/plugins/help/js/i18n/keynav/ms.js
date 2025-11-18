@@ -15,7 +15,7 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.ms',
   '  <dd>Windows, Linux atau macOS: Ctrl+F9\n' +
   '</dl>\n' +
   '\n' +
-  '<p>Navigasi akan bermula pada item UI pertama, yang akan diserlahkan atau digaris bawah dalam saiz item pertama dalam\n' +
+  '<p>Navigasi akan bermula pada barang UI pertama, yang akan diserlahkan atau digaris bawah dalam saiz barang pertama dalam\n' +
   '  laluan elemen Pengaki.</p>\n' +
   '\n' +
   '<h1>Navigasi antara bahagian UI</h1>\n' +
@@ -57,8 +57,8 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.ms',
   '<p>Kekunci anak panah <strong>Bawah</strong> dan <strong>Atas</strong></p>\n' +
   '\n' +
   '<ul>\n' +
-  '  <li>bergerak antara item menu dalam menu.</li>\n' +
-  '  <li>bergerak antara item dalam menu timbul bar alat.</li>\n' +
+  '  <li>bergerak antara barang menu dalam menu.</li>\n' +
+  '  <li>bergerak antara barang dalam menu timbul bar alat.</li>\n' +
   '</ul>\n' +
   '\n' +
   '<p>Kekunci <strong>Anak Panah</strong> berkitar dalam bahagian UI difokuskan.</p>\n' +
@@ -68,10 +68,10 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.ms',
   "<p>Jika fokus semasa berada di bahagian 'atas' bahagian UI tertentu, menekan kekunci <strong>Esc</strong> juga akan keluar daripada\n" +
   '  navigasi papan kekunci sepenuhnya.</p>\n' +
   '\n' +
-  '<h1>Laksanakan item menu atau butang bar alat</h1>\n' +
+  '<h1>Laksanakan barang menu atau butang bar alat</h1>\n' +
   '\n' +
-  '<p>Apabila item menu atau butang bar alat yang diinginkan diserlahkan, tekan <strong>Return</strong>, <strong>Enter</strong>,\n' +
-  '  atau <strong>bar Space</strong> untuk melaksanakan item.</p>\n' +
+  '<p>Apabila barang menu atau butang bar alat yang diinginkan diserlahkan, tekan <strong>Return</strong>, <strong>Enter</strong>,\n' +
+  '  atau <strong>bar Space</strong> untuk melaksanakan barang.</p>\n' +
   '\n' +
   '<h1>Navigasi ke dialog tidak bertab</h1>\n' +
   '\n' +

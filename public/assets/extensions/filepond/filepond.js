@@ -3919,12 +3919,12 @@
             return items[query] || null;
         }
 
-        // if query is item, get the id
+        // if query is barang, get the id
         if (typeof query === 'object') {
             query = query.id;
         }
 
-        // assume query is a string and return item by id
+        // assume query is a string and return barang by id
         return (
             items.find(function(item) {
                 return item.id === query;
@@ -4110,12 +4110,12 @@
     var hasRoomForItem = function hasRoomForItem(state) {
         var count = getActiveItems(state.items).length;
 
-        // if cannot have multiple items, to add one item it should currently not contain items
+        // if cannot have multiple items, to add one barang it should currently not contain items
         if (!state.options.allowMultiple) {
             return count === 0;
         }
 
-        // if allows multiple items, we check if a max item count has been set, if not, there's no limit
+        // if allows multiple items, we check if a max barang count has been set, if not, there's no limit
         var maxFileCount = state.options.maxFiles;
         if (maxFileCount === null) {
             return true;
@@ -4152,7 +4152,7 @@
         // limit the index to the size of the items array
         index = limit(index, 0, items.length);
 
-        // add item to array
+        // add barang to array
         arrayInsert(items, index, item);
 
         // expose
@@ -5136,7 +5136,7 @@
                 // stop here if aborted, might have happened in between request and callback
                 if (state.aborted) return;
 
-                // pass back to item so we can use it if something goes wrong
+                // pass back to barang so we can use it if something goes wrong
                 transfer(serverId);
 
                 // store internally
@@ -5671,11 +5671,11 @@
         var serverFileReference =
             arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         var file = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-        // unique id for this item, is used to identify the item across views
+        // unique id for this barang, is used to identify the barang across views
         var id = getUniqueId();
 
         /**
-         * Internal item state
+         * Internal barang state
          */
         var state = {
             // is archived
@@ -5702,7 +5702,7 @@
             // is aborted
             processingAborted: false,
 
-            // current item status
+            // current barang status
             status: serverFileReference ? ItemStatus.PROCESSING_COMPLETE : ItemStatus.INIT,
 
             // active processes
@@ -5714,16 +5714,16 @@
         var abortProcessingRequestComplete = null;
 
         /**
-         * Externally added item metadata
+         * Externally added barang metadata
          */
         var metadata = {};
 
-        // item data
+        // barang data
         var setStatus = function setStatus(status) {
             return (state.status = status);
         };
 
-        // fire event unless the item has been archived
+        // fire event unless the barang has been archived
         var fire = function fire(event) {
             if (state.released || state.frozen) return;
             for (
@@ -5754,7 +5754,7 @@
         // logic to load a file
         //
         var load = function load(source, loader, onload) {
-            // remember the original item source
+            // remember the original barang source
             state.source = source;
 
             // source is known
@@ -6201,7 +6201,7 @@
             return -1;
         }
 
-        // return item by id (or -1 if not found)
+        // return barang by id (or -1 if not found)
         return items.findIndex(function(item) {
             return item.id === query;
         });
@@ -6320,7 +6320,7 @@
         });
     };
 
-    // returns item based on state
+    // returns barang based on state
     var getItemByQueryFromState = function getItemByQueryFromState(state, itemHandler) {
         return function() {
             var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -6375,7 +6375,7 @@
                 var activeItems = getActiveItems(state.items);
 
                 activeItems.forEach(function(item) {
-                    // if item not is in new value, remove
+                    // if barang not is in new value, remove
                     if (
                         !files.find(function(file) {
                             return file.source === item.source || file.source === item.file;
@@ -6452,7 +6452,7 @@
                         return;
                     }
 
-                    // if is local item we need to enable upload button so change can be propagated to server
+                    // if is local barang we need to enable upload button so change can be propagated to server
                     if (item.origin === FileOrigin.LOCAL) {
                         dispatch('DID_LOAD_ITEM', {
                             id: item.id,
@@ -6600,7 +6600,7 @@
                 // test if there's still room in the list of files
                 if (!hasRoomForItem(state)) {
                     // if multiple allowed, we can't replace
-                    // or if only a single item is allowed but we're not allowed to replace it we exit
+                    // or if only a single barang is allowed but we're not allowed to replace it we exit
                     if (
                         state.options.allowMultiple ||
                         (!state.options.allowMultiple && !state.options.allowReplace)
@@ -6617,8 +6617,8 @@
                         return;
                     }
 
-                    // let's replace the item
-                    // id of first item we're about to remove
+                    // let's replace the barang
+                    // id of first barang we're about to remove
                     var _item = getActiveItems(state.items)[0];
 
                     // if has been processed remove it from the server as well
@@ -6653,7 +6653,7 @@
                         if (forceRevert) return;
                     }
 
-                    // remove first item as it will be replaced by this item
+                    // remove first barang as it will be replaced by this barang
                     dispatch('REMOVE_ITEM', { query: _item.id });
                 }
 
@@ -6665,7 +6665,7 @@
                         ? FileOrigin.LIMBO
                         : FileOrigin.INPUT;
 
-                // create a new blank item
+                // create a new blank barang
                 var item = createItem(
                     // where did this file come from
                     origin,
@@ -6682,7 +6682,7 @@
                     item.setMetadata(key, options.metadata[key]);
                 });
 
-                // created the item, let plugins add methods
+                // created the barang, let plugins add methods
                 applyFilters('DID_CREATE_ITEM', item, { query: query, dispatch: dispatch });
 
                 // where to insert new items
@@ -6693,7 +6693,7 @@
                     index = itemInsertLocation === 'before' ? -1 : state.items.length;
                 }
 
-                // add item to list
+                // add barang to list
                 insertItem(state.items, item, index);
 
                 // sort items in list
@@ -6701,10 +6701,10 @@
                     sortItems(state, itemInsertLocation);
                 }
 
-                // get a quick reference to the item id
+                // get a quick reference to the barang id
                 var id = item.id;
 
-                // observe item events
+                // observe barang events
                 item.on('init', function() {
                     dispatch('DID_INIT_ITEM', { id: id });
                 });
@@ -6840,7 +6840,7 @@
                         });
                     };
 
-                    // item loaded, allow plugins to
+                    // barang loaded, allow plugins to
                     // - read data (quickly)
                     // - add metadata
                     applyFilterChain('DID_LOAD_ITEM', item, { query: query, dispatch: dispatch })
@@ -6908,7 +6908,7 @@
                     dispatch('DID_DEFINE_VALUE', { id: id, value: null });
                 });
 
-                // let view know the item has been inserted
+                // let view know the barang has been inserted
                 dispatch('DID_ADD_ITEM', {
                     id: id,
                     index: index,
@@ -6957,13 +6957,13 @@
                     success = _ref9.success,
                     _ref9$failure = _ref9.failure,
                     failure = _ref9$failure === void 0 ? function() {} : _ref9$failure;
-                // error response if item archived
+                // error response if barang archived
                 var err = {
                     error: createResponse('error', 0, 'Item not found'),
                     file: null,
                 };
 
-                // don't handle archived items, an item could have been archived (load aborted) while waiting to be prepared
+                // don't handle archived items, an barang could have been archived (load aborted) while waiting to be prepared
                 if (item.archived) return failure(err);
 
                 // allow plugins to alter the file data
@@ -6973,7 +6973,7 @@
                             query: query,
                             item: item,
                         }).then(function(result) {
-                            // don't handle archived items, an item could have been archived (load aborted) while being prepared
+                            // don't handle archived items, an barang could have been archived (load aborted) while being prepared
                             if (item.archived) return failure(err);
 
                             // we done!
@@ -6995,14 +6995,14 @@
                     sortItems(state, itemInsertLocation);
                 }
 
-                // let interface know the item has loaded
+                // let interface know the barang has loaded
                 dispatch('DID_LOAD_ITEM', {
                     id: item.id,
                     error: null,
                     serverFileReference: item.origin === FileOrigin.INPUT ? null : source,
                 });
 
-                // item has been successfully loaded and added to the
+                // barang has been successfully loaded and added to the
                 // list of items so can now be safely returned for use
                 success(createItemAPI(item));
 
@@ -7144,19 +7144,19 @@
                     // no items left
                     if (!queueEntry) return;
 
-                    // get item reference
+                    // get barang reference
                     var id = queueEntry.id,
                         success = queueEntry.success,
                         failure = queueEntry.failure;
                     var itemReference = getItemByQuery(state.items, id);
 
-                    // if item was archived while in queue, jump to next
+                    // if barang was archived while in queue, jump to next
                     if (!itemReference || itemReference.archived) {
                         processNext();
                         return;
                     }
 
-                    // process queued item
+                    // process queued barang
                     dispatch(
                         'PROCESS_ITEM',
                         { query: id, success: success, failure: failure },
@@ -7259,10 +7259,10 @@
                     // get id reference
                     var id = item.id;
 
-                    // archive the item, this does not remove it from the list
+                    // archive the barang, this does not remove it from the list
                     getItemById(state.items, id).archive();
 
-                    // tell the view the item has been removed
+                    // tell the view the barang has been removed
                     dispatch('DID_REMOVE_ITEM', { error: null, id: id, item: item });
 
                     // now the list has been modified
@@ -7856,48 +7856,48 @@
         AbortItemLoad: {
             label: 'GET_LABEL_BUTTON_ABORT_ITEM_LOAD',
             action: 'ABORT_ITEM_LOAD',
-            className: 'filepond--action-abort-item-load',
+            className: 'filepond--action-abort-barang-load',
             align: 'LOAD_INDICATOR_POSITION', // right
         },
         RetryItemLoad: {
             label: 'GET_LABEL_BUTTON_RETRY_ITEM_LOAD',
             action: 'RETRY_ITEM_LOAD',
             icon: 'GET_ICON_RETRY',
-            className: 'filepond--action-retry-item-load',
+            className: 'filepond--action-retry-barang-load',
             align: 'BUTTON_PROCESS_ITEM_POSITION', // right
         },
         RemoveItem: {
             label: 'GET_LABEL_BUTTON_REMOVE_ITEM',
             action: 'REQUEST_REMOVE_ITEM',
             icon: 'GET_ICON_REMOVE',
-            className: 'filepond--action-remove-item',
+            className: 'filepond--action-remove-barang',
             align: 'BUTTON_REMOVE_ITEM_POSITION', // left
         },
         ProcessItem: {
             label: 'GET_LABEL_BUTTON_PROCESS_ITEM',
             action: 'REQUEST_ITEM_PROCESSING',
             icon: 'GET_ICON_PROCESS',
-            className: 'filepond--action-process-item',
+            className: 'filepond--action-process-barang',
             align: 'BUTTON_PROCESS_ITEM_POSITION', // right
         },
         AbortItemProcessing: {
             label: 'GET_LABEL_BUTTON_ABORT_ITEM_PROCESSING',
             action: 'ABORT_ITEM_PROCESSING',
-            className: 'filepond--action-abort-item-processing',
+            className: 'filepond--action-abort-barang-processing',
             align: 'BUTTON_PROCESS_ITEM_POSITION', // right
         },
         RetryItemProcessing: {
             label: 'GET_LABEL_BUTTON_RETRY_ITEM_PROCESSING',
             action: 'RETRY_ITEM_PROCESSING',
             icon: 'GET_ICON_RETRY',
-            className: 'filepond--action-retry-item-processing',
+            className: 'filepond--action-retry-barang-processing',
             align: 'BUTTON_PROCESS_ITEM_POSITION', // right
         },
         RevertItemProcessing: {
             label: 'GET_LABEL_BUTTON_UNDO_ITEM_PROCESSING',
             action: 'REQUEST_REVERT_ITEM_PROCESSING',
             icon: 'GET_ICON_UNDO',
-            className: 'filepond--action-revert-item-processing',
+            className: 'filepond--action-revert-barang-processing',
             align: 'BUTTON_PROCESS_ITEM_POSITION', // right
         },
     };
@@ -8083,7 +8083,7 @@
         // is async set up
         var isAsync = root.query('IS_ASYNC');
 
-        // should align remove item buttons
+        // should align remove barang buttons
         var alignRemoveItemButton = root.query('GET_STYLE_BUTTON_REMOVE_ITEM_ALIGN');
 
         // enabled buttons array
@@ -8546,7 +8546,7 @@
         };
 
         // set id
-        root.element.id = 'filepond--item-' + props.id;
+        root.element.id = 'filepond--barang-' + props.id;
         root.element.addEventListener('click', root.ref.handleClick);
 
         // file view
@@ -8718,7 +8718,7 @@
                 root.height = root.rect.element.width * aspectRatio;
             }
 
-            // sync panel height with item height
+            // sync panel height with barang height
             if (shouldOptimize) {
                 root.ref.panel.height = null;
             }
@@ -8761,7 +8761,7 @@
     });
 
     var getItemsPerRow = function(horizontalSpace, itemWidth) {
-        // add one pixel leeway, when using percentages for item width total items can be 1.99 per row
+        // add one pixel leeway, when using percentages for barang width total items can be 1.99 per row
 
         return Math.max(1, Math.floor((horizontalSpace + 1) / itemWidth));
     };
@@ -8777,7 +8777,7 @@
         // -1, don't move items to accomodate (either add to top or bottom)
         if (l === 0 || positionInView.top < children[0].rect.element.top) return -1;
 
-        // let's get the item width
+        // let's get the barang width
         var item = children[0];
         var itemRect = item.rect.element;
         var itemHorizontalMargin = itemRect.marginLeft + itemRect.marginRight;
@@ -8858,7 +8858,7 @@
     };
 
     /**
-     * Inserts a new item
+     * Inserts a new barang
      * @param root
      * @param action
      */
@@ -8957,7 +8957,7 @@
     };
 
     /**
-     * Removes an existing item
+     * Removes an existing barang
      * @param root
      * @param action
      */
@@ -9006,7 +9006,7 @@
         var id = action.id,
             dragState = action.dragState;
 
-        // reference to item
+        // reference to barang
         var item = root.query('GET_ITEM', { id: id });
 
         // get the view matching the given id
@@ -9039,7 +9039,7 @@
         dropAreaDimensions.setHeight = dragHeight * rows;
         dropAreaDimensions.setWidth = dragWidth * cols;
 
-        // get new index of dragged item
+        // get new index of dragged barang
         var location = {
             y: Math.floor(dragPosition.y / dragHeight),
             x: Math.floor(dragPosition.x / dragWidth),
@@ -9097,7 +9097,7 @@
         var index = cols > 1 ? location.getGridIndex() : location.getColIndex();
         root.dispatch('MOVE_ITEM', { query: view, index: index });
 
-        // if the index of the item changed, dispatch reorder action
+        // if the index of the barang changed, dispatch reorder action
         var currentIndex = dragState.getIndex();
 
         if (currentIndex === undefined || currentIndex !== index) {
@@ -9162,7 +9162,7 @@
             ? getItemIndexByPosition(root, children, dragCoordinates)
             : null;
 
-        // add index is used to reserve the dropped/added item index till the actual item is rendered
+        // add index is used to reserve the dropped/added barang index till the actual barang is rendered
         var addIndex = root.ref.addIndex || null;
 
         // add index no longer needed till possibly next draw
@@ -9831,7 +9831,7 @@
         // store server ref in hidden input
         if (action.serverFileReference !== null) field.value = action.serverFileReference;
 
-        // store file item in file input
+        // store file barang in file input
         if (!root.query('SHOULD_UPDATE_FILE_INPUT')) return;
 
         var fileItem = root.query('GET_ITEM', action.id);
@@ -9961,7 +9961,7 @@
                     return isFileSystemItem(item);
                 })
 
-                // map each item to promise
+                // map each barang to promise
                 .map(function(item) {
                     return getFilesFromItem(item);
                 });
@@ -10915,7 +10915,7 @@
         var maxItems = isMultiItem ? root.query('GET_MAX_FILES') || MAX_FILES_LIMIT : 1;
         var atMaxCapacity = totalItems === maxItems;
 
-        // action used to add item
+        // action used to add barang
         var addAction = actions.find(function(action) {
             return action.type === 'DID_ADD_ITEM';
         });
@@ -11188,7 +11188,7 @@
         // total amount of items being dragged
         var totalBrowseItems = items.length;
 
-        // if does not allow multiple items and dragging more than one item
+        // if does not allow multiple items and dragging more than one barang
         if (!allowMultiple && totalBrowseItems > 1) {
             root.dispatch('DID_THROW_MAX_FILES', {
                 source: items,
@@ -11202,7 +11202,7 @@
         maxItems = allowMultiple ? maxItems : 1;
 
         if (!allowMultiple && allowReplace) {
-            // There is only one item, so there is room to replace or add an item
+            // There is only one barang, so there is room to replace or add an barang
             return false;
         }
 
@@ -11278,7 +11278,7 @@
             );
 
             hopper.onload = function(items, position) {
-                // get item children elements and sort based on list sort
+                // get barang children elements and sort based on list sort
                 var list = root.ref.list.childViews[0];
                 var visibleChildren = list.childViews.filter(function(child) {
                     return child.rect.element.height;
@@ -11623,7 +11623,7 @@
                     event.output = data.file;
                 }
 
-                // only source is available, else add item if possible
+                // only source is available, else add barang if possible
                 if (data.source) {
                     event.file = data.source;
                 } else if (data.item || data.id) {
@@ -11806,10 +11806,10 @@
                 query = undefined;
             }
 
-            // request item removal
+            // request barang removal
             store.dispatch('REMOVE_ITEM', Object.assign({}, options, { query: query }));
 
-            // see if item has been removed
+            // see if barang has been removed
             return store.query('GET_ACTIVE_ITEM', query) === null;
         };
 

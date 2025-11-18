@@ -3,7 +3,7 @@ declare namespace _default {
     export namespace modes {
         /**
              * Returns items at the same index. If the options.intersect parameter is true, we only return items if we intersect something
-             * If the options.intersect mode is false, we find the nearest item and return the items at the same index as that item
+             * If the options.intersect mode is false, we find the nearest barang and return the items at the same index as that barang
              * @function Chart.Interaction.modes.index
              * @since v2.4.0
              * @param {Chart} chart - the chart we are returning items from
@@ -15,7 +15,7 @@ declare namespace _default {
         function index(chart: import("./core.controller.js").default, e: Event, options: InteractionOptions, useFinalPosition?: boolean): InteractionItem[];
         /**
              * Returns items in the same dataset. If the options.intersect parameter is true, we only return items if we intersect something
-             * If the options.intersect is false, we find the nearest item and return the items in that dataset
+             * If the options.intersect is false, we find the nearest barang and return the items in that dataset
              * @function Chart.Interaction.modes.dataset
              * @param {Chart} chart - the chart we are returning items from
              * @param {Event} e - the event we are find things at
@@ -86,7 +86,7 @@ export type Point = import('../types/index.js').Point;
  * @param {Chart} chart - the chart
  * @param {string} axis - the axis mode. x|y|xy|r
  * @param {Point} position - the point to be nearest to, in relative coordinates
- * @param {function} handler - the callback to execute for each visible item
+ * @param {function} handler - the callback to execute for each visible barang
  * @param {boolean} [intersect] - consider intersecting items
  */
 declare function evaluateInteractionItems(chart: Chart, axis: string, position: Point, handler: Function, intersect?: boolean): void;

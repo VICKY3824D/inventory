@@ -632,7 +632,7 @@
 
     will-change: transform, opacity;
 
-    /* item children order */
+    /* barang children order */
 }
 .filepond--item > .filepond--panel {
     z-index: -1;
@@ -677,7 +677,7 @@
 [data-filepond-item-state*='error'] .filepond--item-panel {
     background-color: #c44e47;
 }
-/* style of item panel */
+/* style of barang panel */
 .filepond--item-panel {
     border-radius: 0.5em;
     transition: background-color 0.25s;
@@ -760,7 +760,7 @@
 }
 .filepond--root[data-style-panel-layout~='circle'],
 .filepond--root[data-style-panel-layout~='integrated'] {
-    /* we're only loading one item, this makes the intro animation a bit nicer */
+    /* we're only loading one barang, this makes the intro animation a bit nicer */
 }
 .filepond--root[data-style-panel-layout~='circle'] .filepond--item-panel,
 .filepond--root[data-style-panel-layout~='integrated'] .filepond--item-panel {

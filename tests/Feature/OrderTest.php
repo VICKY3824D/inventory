@@ -439,7 +439,7 @@ class OrderTest extends TestCase
     /** @test */
     public function can_create_order_item()
     {
-        // Test: Membuat order item dengan semua field yang diperlukan
+        // Test: Membuat order barang dengan semua field yang diperlukan
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
             'user_id' => $this->user->id,
@@ -468,7 +468,7 @@ class OrderTest extends TestCase
     /** @test */
     public function order_item_belongs_to_order()
     {
-        // Test: Order item memiliki relasi belongsTo dengan Order
+        // Test: Order barang memiliki relasi belongsTo dengan Order
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
             'user_id' => $this->user->id,
@@ -492,7 +492,7 @@ class OrderTest extends TestCase
     /** @test */
     public function order_item_belongs_to_barang()
     {
-        // Test: Order item memiliki relasi belongsTo dengan Barang
+        // Test: Order barang memiliki relasi belongsTo dengan Barang
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
             'user_id' => $this->user->id,
@@ -576,7 +576,7 @@ class OrderTest extends TestCase
     /** @test */
     public function order_item_subtotal_calculation_is_correct()
     {
-        // Test: Perhitungan subtotal order item sesuai (harga × qty)
+        // Test: Perhitungan subtotal order barang sesuai (harga × qty)
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
             'user_id' => $this->user->id,
@@ -600,7 +600,7 @@ class OrderTest extends TestCase
     /** @test */
     public function order_item_stores_price_at_order_time()
     {
-        // Test: Order item menyimpan harga pada saat order dibuat (bukan harga current)
+        // Test: Order barang menyimpan harga pada saat order dibuat (bukan harga current)
         // Ini penting untuk histori harga
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
@@ -625,7 +625,7 @@ class OrderTest extends TestCase
     /** @test */
     public function order_item_has_timestamps()
     {
-        // Test: Order item memiliki created_at dan updated_at timestamps
+        // Test: Order barang memiliki created_at dan updated_at timestamps
         $order = Order::create([
             'kode_order' => $this->generateKodeOrder(),
             'user_id' => $this->user->id,

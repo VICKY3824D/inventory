@@ -23,7 +23,7 @@
             replaceInString = utils.replaceInString,
             toNaturalFileSize = utils.toNaturalFileSize;
 
-        // filtering if an item is allowed in hopper
+        // filtering if an barang is allowed in hopper
         addFilter('ALLOW_HOPPER_ITEM', function(file, _ref2) {
             var query = _ref2.query;
             if (!query('GET_ALLOW_FILE_SIZE_VALIDATION')) {
@@ -44,7 +44,7 @@
         });
 
         // called for each file that is loaded
-        // right before it is set to the item state
+        // right before it is set to the barang state
         // should return a promise
         addFilter('LOAD_FILE', function(file, _ref3) {
             var query = _ref3.query;

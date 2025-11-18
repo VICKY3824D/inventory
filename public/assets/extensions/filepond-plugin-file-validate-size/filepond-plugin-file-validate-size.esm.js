@@ -10,7 +10,7 @@ const plugin = ({ addFilter, utils }) => {
     // get quick reference to Type utils
     const { Type, replaceInString, toNaturalFileSize } = utils;
 
-    // filtering if an item is allowed in hopper
+    // filtering if an barang is allowed in hopper
     addFilter('ALLOW_HOPPER_ITEM', (file, { query }) => {
         if (!query('GET_ALLOW_FILE_SIZE_VALIDATION')) {
             return true;
@@ -30,7 +30,7 @@ const plugin = ({ addFilter, utils }) => {
     });
 
     // called for each file that is loaded
-    // right before it is set to the item state
+    // right before it is set to the barang state
     // should return a promise
     addFilter(
         'LOAD_FILE',

@@ -1,5 +1,5 @@
 /*!
- * 
+ *
  * Super simple WYSIWYG editor v0.8.20
  * https://summernote.org
  *
@@ -208,7 +208,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -222,14 +222,14 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -242,7 +242,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -254,12 +254,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -270,7 +270,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1145__;
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -560,7 +560,7 @@ function isValidUrl(url) {
 ;// CONCATENATED MODULE: ./src/js/core/lists.js
 
 /**
- * returns the first item of an array.
+ * returns the first barang of an array.
  *
  * @param {Array} array
  */
@@ -569,7 +569,7 @@ function head(array) {
   return array[0];
 }
 /**
- * returns the last item of an array.
+ * returns the last barang of an array.
  *
  * @param {Array} array
  */
@@ -599,7 +599,7 @@ function tail(array) {
   return array.slice(1);
 }
 /**
- * returns item of array
+ * returns barang of array
  */
 
 
@@ -747,7 +747,7 @@ function unique(array) {
   return results;
 }
 /**
- * returns next item.
+ * returns next barang.
  * @param {Array} array
  */
 
@@ -761,7 +761,7 @@ function next(array, item) {
   return null;
 }
 /**
- * returns prev item.
+ * returns prev barang.
  * @param {Array} array
  */
 
@@ -4133,8 +4133,8 @@ var Bullet = /*#__PURE__*/function () {
     /**
      * @method appendToPrevious
      *
-     * Appends list to previous list item, if
-     * none exist it wraps the list in a new list item.
+     * Appends list to previous list barang, if
+     * none exist it wraps the list in a new list barang.
      *
      * @param {HTMLNode} ListItem
      * @return {HTMLNode}
@@ -4148,7 +4148,7 @@ var Bullet = /*#__PURE__*/function () {
     /**
      * @method findList
      *
-     * Finds an existing list in list item
+     * Finds an existing list in list barang
      *
      * @param {HTMLNode} ListItem
      * @return {Array[]}
@@ -4164,7 +4164,7 @@ var Bullet = /*#__PURE__*/function () {
     /**
      * @method findNextSiblings
      *
-     * Finds all list item siblings that follow it
+     * Finds all list barang siblings that follow it
      *
      * @param {HTMLNode} ListItem
      * @return {HTMLNode}
@@ -4400,7 +4400,7 @@ var TableResultAction = function TableResultAction(startPoint, where, action, do
    * Create action cell object.
    *
    * @param {object} virtualTableCellObj Object of specific position on virtual table.
-   * @param {enum} resultAction Action to be applied in that item.
+   * @param {enum} resultAction Action to be applied in that barang.
    */
 
 
@@ -9167,7 +9167,7 @@ var HelpDialog = /*#__PURE__*/function () {
       var keyMap = this.options.keyMap[env.isMac ? 'mac' : 'pc'];
       return Object.keys(keyMap).map(function (key) {
         var command = keyMap[key];
-        var $row = external_jQuery_default()('<div><div class="help-list-item"></div></div>');
+        var $row = external_jQuery_default()('<div><div class="help-list-barang"></div></div>');
         $row.append(external_jQuery_default()('<label><kbd>' + key + '</kdb></label>').css({
           'width': 180,
           'margin-right': 10
@@ -9408,7 +9408,7 @@ var HintPopover = /*#__PURE__*/function () {
       }).render().appendTo(this.options.container);
       this.$popover.hide();
       this.$content = this.$popover.find('.popover-content,.note-popover-content');
-      this.$content.on('click', '.note-hint-item', function (e) {
+      this.$content.on('click', '.note-hint-barang', function (e) {
         _this2.$content.find('.active').removeClass('active');
 
         external_jQuery_default()(e.currentTarget).addClass('active');
@@ -9434,7 +9434,7 @@ var HintPopover = /*#__PURE__*/function () {
   }, {
     key: "moveDown",
     value: function moveDown() {
-      var $current = this.$content.find('.note-hint-item.active');
+      var $current = this.$content.find('.note-hint-barang.active');
       var $next = $current.next();
 
       if ($next.length) {
@@ -9446,13 +9446,13 @@ var HintPopover = /*#__PURE__*/function () {
           $nextGroup = this.$content.find('.note-hint-group').first();
         }
 
-        this.selectItem($nextGroup.find('.note-hint-item').first());
+        this.selectItem($nextGroup.find('.note-hint-barang').first());
       }
     }
   }, {
     key: "moveUp",
     value: function moveUp() {
-      var $current = this.$content.find('.note-hint-item.active');
+      var $current = this.$content.find('.note-hint-barang.active');
       var $prev = $current.prev();
 
       if ($prev.length) {
@@ -9464,13 +9464,13 @@ var HintPopover = /*#__PURE__*/function () {
           $prevGroup = this.$content.find('.note-hint-group').last();
         }
 
-        this.selectItem($prevGroup.find('.note-hint-item').last());
+        this.selectItem($prevGroup.find('.note-hint-barang').last());
       }
     }
   }, {
     key: "replace",
     value: function replace() {
-      var $item = this.$content.find('.note-hint-item.active');
+      var $item = this.$content.find('.note-hint-barang.active');
 
       if ($item.length) {
         var node = this.nodeFromItem($item); // If matchingWord length = 0 -> capture OK / open hint / but as mention capture "" (\w*)
@@ -9521,7 +9521,7 @@ var HintPopover = /*#__PURE__*/function () {
       return items.map(function (item
       /*, idx */
       ) {
-        var $item = external_jQuery_default()('<div class="note-hint-item"></div>');
+        var $item = external_jQuery_default()('<div class="note-hint-barang"></div>');
         $item.append(hint.template ? hint.template(item) : item + '');
         $item.data({
           'index': hintIdx,
@@ -9623,9 +9623,9 @@ var HintPopover = /*#__PURE__*/function () {
               if (hint.match.test(keyword)) {
                 _this4.createGroup(idx, keyword).appendTo(_this4.$content);
               }
-            }); // select first .note-hint-item
+            }); // select first .note-hint-barang
 
-            this.$content.find('.note-hint-item:first').addClass('active'); // set position for popover after group is created
+            this.$content.find('.note-hint-barang:first').addClass('active'); // set position for popover after group is created
 
             if (this.direction === 'top') {
               this.$popover.css({
@@ -10320,14 +10320,14 @@ var dropdown = renderer.create('<div class="note-dropdown-menu" role="list"></di
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
-    var $temp = external_jQuery_default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + value + '"></a>');
+    var $temp = external_jQuery_default()('<a class="note-dropdown-barang" href="#" data-value="' + value + '" role="listitem" aria-label="' + value + '"></a>');
     $temp.html(content).data('item', item);
     return $temp;
   }) : options.items;
   $node.html(markup).attr({
     'aria-label': options.title
   });
-  $node.on('click', '> .note-dropdown-item', function (e) {
+  $node.on('click', '> .note-dropdown-barang', function (e) {
     var $a = external_jQuery_default()(this);
     var item = $a.data('item');
     var value = $a.data('value');
@@ -10347,14 +10347,14 @@ var dropdownCheck = renderer.create('<div class="note-dropdown-menu note-check" 
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
-    var $temp = external_jQuery_default()('<a class="note-dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
+    var $temp = external_jQuery_default()('<a class="note-dropdown-barang" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '"></a>');
     $temp.html([icon(options.checkClassName), ' ', content]).data('item', item);
     return $temp;
   }) : options.items;
   $node.html(markup).attr({
     'aria-label': options.title
   });
-  $node.on('click', '> .note-dropdown-item', function (e) {
+  $node.on('click', '> .note-dropdown-barang', function (e) {
     var $a = external_jQuery_default()(this);
     var item = $a.data('item');
     var value = $a.data('value');

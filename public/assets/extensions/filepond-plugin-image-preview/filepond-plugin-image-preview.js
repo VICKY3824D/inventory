@@ -3151,7 +3151,7 @@
       // no images to update, exit
       if (!root.ref.images.length) return;
 
-      // no item found, exit
+      // no barang found, exit
       var item = root.query('GET_ITEM', { id: props.id });
       if (!item) return;
 
@@ -3214,7 +3214,7 @@
       // get url to file (we'll revoke it later on when done)
       var fileURL = URL.createObjectURL(item.file);
 
-      // determine image size of this item
+      // determine image size of this barang
       getImageSize(fileURL, function(width, height) {
         // we can now scale the panel to the final size
         root.dispatch('DID_IMAGE_PREVIEW_CALCULATE_SIZE', {
@@ -3518,17 +3518,17 @@
         view = viewAPI.view,
         query = viewAPI.query;
 
-      // only hook up to item view and only if is enabled for this cropper
+      // only hook up to barang view and only if is enabled for this cropper
       if (!is('file') || !query('GET_ALLOW_IMAGE_PREVIEW')) return;
 
-      // create the image preview plugin, but only do so if the item is an image
+      // create the image preview plugin, but only do so if the barang is an image
       var didLoadItem = function didLoadItem(_ref) {
         var root = _ref.root,
           props = _ref.props;
         var id = props.id;
         var item = query('GET_ITEM', id);
 
-        // item could theoretically have been removed in the mean time
+        // barang could theoretically have been removed in the mean time
         if (!item || !isFile(item.file) || item.archived) return;
 
         // get the file object
@@ -3576,7 +3576,7 @@
         if (!root.ref.imagePreview) return;
         var id = props.id;
 
-        // get item
+        // get barang
         var item = root.query('GET_ITEM', { id: id });
         if (!item) return;
 
@@ -3617,7 +3617,7 @@
         // image aspect ratio
         var imageAspectRatio = imageHeight / imageWidth;
 
-        // we need the item to get to the crop size
+        // we need the barang to get to the crop size
         var previewAspectRatio =
           (item.getMetadata('crop') || {}).aspectRatio || imageAspectRatio;
 
@@ -3690,7 +3690,7 @@
             // don't do anything while hidden
             if (root.rect.element.hidden) return;
 
-            // resize the item panel
+            // resize the barang panel
             if (root.ref.shouldRescale) {
               rescaleItem(root, props);
               root.ref.shouldRescale = false;

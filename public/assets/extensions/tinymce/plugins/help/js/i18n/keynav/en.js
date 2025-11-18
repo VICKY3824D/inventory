@@ -15,7 +15,7 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.en',
   '  <dd>Windows, Linux or macOS: Ctrl+F9\n' +
   '</dl>\n' +
   '\n' +
-  '<p>Navigation will start at the first UI item, which will be highlighted, or underlined in the case of the first item in\n' +
+  '<p>Navigation will start at the first UI barang, which will be highlighted, or underlined in the case of the first barang in\n' +
   '  the Footer element path.</p>\n' +
   '\n' +
   '<h1>Navigate between UI sections</h1>\n' +
@@ -68,10 +68,10 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.en',
   '<p>If the current focus is at the ‘top’ of a particular UI section, pressing the <strong>Esc</strong> key also exits\n' +
   '  keyboard navigation entirely.</p>\n' +
   '\n' +
-  '<h1>Execute a menu item or toolbar button</h1>\n' +
+  '<h1>Execute a menu barang or toolbar button</h1>\n' +
   '\n' +
-  '<p>When the desired menu item or toolbar button is highlighted, press <strong>Return</strong>, <strong>Enter</strong>,\n' +
-  '  or the <strong>Space bar</strong> to execute the item.</p>\n' +
+  '<p>When the desired menu barang or toolbar button is highlighted, press <strong>Return</strong>, <strong>Enter</strong>,\n' +
+  '  or the <strong>Space bar</strong> to execute the barang.</p>\n' +
   '\n' +
   '<h1>Navigate non-tabbed dialogs</h1>\n' +
   '\n' +

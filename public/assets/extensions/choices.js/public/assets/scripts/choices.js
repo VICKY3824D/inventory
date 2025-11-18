@@ -307,7 +307,7 @@ var Choices = /** @class */function () {
       }
     }
     this._idNames = {
-      itemChoice: 'item-choice'
+      itemChoice: 'barang-choice'
     };
     if (this._isSelectElement) {
       // Assign preset groups from passed element
@@ -838,7 +838,7 @@ var Choices = /** @class */function () {
     var activeItems = this._store.activeItems || [];
     this.itemList.clear();
     // Create a fragment to store our list items
-    // (so we don't have to update the DOM for each item)
+    // (so we don't have to update the DOM for each barang)
     var itemListFragment = this._createItemsFragment(activeItems);
     // If we have items to add, append them
     if (itemListFragment.childNodes) {
@@ -880,7 +880,7 @@ var Choices = /** @class */function () {
     if (withinGroup === void 0) {
       withinGroup = false;
     }
-    // Create a fragment to store our list items (so we don't have to update the DOM for each item)
+    // Create a fragment to store our list items (so we don't have to update the DOM for each barang)
     var _a = this.config,
       renderSelectedChoices = _a.renderSelectedChoices,
       searchResultLimit = _a.searchResultLimit,
@@ -963,7 +963,7 @@ var Choices = /** @class */function () {
       // Append it to list
       fragment.appendChild(listItem);
     };
-    // Add each list item to list
+    // Add each list barang to list
     items.forEach(addItemToFragment);
     return fragment;
   };
@@ -996,7 +996,7 @@ var Choices = /** @class */function () {
     if (!itemToRemove) {
       return;
     }
-    // Remove item associated with button
+    // Remove barang associated with button
     this._removeItem(itemToRemove);
     this._triggerChange(itemToRemove.value);
     if (this._isSelectOneElement && this._store.placeholderChoice) {
@@ -1012,7 +1012,7 @@ var Choices = /** @class */function () {
       return;
     }
     var passedId = element.dataset.id;
-    // We only want to select one item with a click
+    // We only want to select one barang with a click
     // so we deselect any items that aren't the target
     // unless shift is being pressed
     activeItems.forEach(function (item) {
@@ -1023,7 +1023,7 @@ var Choices = /** @class */function () {
       }
     });
     // Focus input as without focus, a user cannot do anything with a
-    // highlighted item
+    // highlighted barang
     this.input.focus();
   };
   Choices.prototype._handleChoiceAction = function (activeItems, element) {
@@ -1073,8 +1073,8 @@ var Choices = /** @class */function () {
     var hasHighlightedItems = activeItems.some(function (item) {
       return item.highlighted;
     });
-    // If editing the last item is allowed and there are not other selected items,
-    // we can edit the item value. Otherwise if we can remove items, remove all selected items
+    // If editing the last barang is allowed and there are not other selected items,
+    // we can edit the barang value. Otherwise if we can remove items, remove all selected items
     if (this.config.editItems && !hasHighlightedItems && lastItem) {
       this.input.value = lastItem.value;
       this.input.setWidth();
@@ -1082,7 +1082,7 @@ var Choices = /** @class */function () {
       this._triggerChange(lastItem.value);
     } else {
       if (!hasHighlightedItems) {
-        // Highlight last item if none already highlighted
+        // Highlight last barang if none already highlighted
         this.highlightItem(lastItem, false);
       }
       this.removeHighlightedItems(true);
@@ -1481,7 +1481,7 @@ var Choices = /** @class */function () {
     if (target === this.input.element) {
       return;
     }
-    var item = target.closest('[data-button],[data-item],[data-choice]');
+    var item = target.closest('[data-button],[data-barang],[data-choice]');
     if (item instanceof HTMLElement) {
       var hasShiftKey = event.shiftKey;
       var activeItems = this._store.activeItems;
@@ -2759,7 +2759,7 @@ var WrappedSelect = /** @class */function (_super) {
         // Append it to fragment
         fragment.appendChild(option);
       };
-      // Add each list item to list
+      // Add each list barang to list
       options.forEach(function (optionData) {
         return addOptionToFragment(optionData);
       });
@@ -3360,7 +3360,7 @@ function choices(state, action) {
         };
         /*
           A disabled choice appears in the choice dropdown but cannot be selected
-          A selected choice has been added to the passed input's value (added as an item)
+          A selected choice has been added to the passed input's value (added as an barang)
           An active choice appears within the choice dropdown
         */
         return __spreadArray(__spreadArray([], state, true), [choice], false);
@@ -3368,7 +3368,7 @@ function choices(state, action) {
     case 'ADD_ITEM':
       {
         var addItemAction_1 = action;
-        // When an item is added and it has an associated choice,
+        // When an barang is added and it has an associated choice,
         // we want to disable it so it can't be chosen again
         if (addItemAction_1.choiceId > -1) {
           return state.map(function (obj) {
@@ -3384,7 +3384,7 @@ function choices(state, action) {
     case 'REMOVE_ITEM':
       {
         var removeItemAction_1 = action;
-        // When an item is removed and it has an associated choice,
+        // When an barang is removed and it has an associated choice,
         // we want to re-enable it so it can be chosen again
         if (removeItemAction_1.choiceId && removeItemAction_1.choiceId > -1) {
           return state.map(function (obj) {
@@ -3590,7 +3590,7 @@ function items(state, action) {
       }
     case 'REMOVE_ITEM':
       {
-        // Set item to inactive
+        // Set barang to inactive
         return state.map(function (obj) {
           var item = obj;
           if (item.id === action.id) {
@@ -3955,7 +3955,7 @@ var templates = {
       }
       div.dataset.deletable = '';
       /** @todo This MUST be localizable, not hardcoded! */
-      var REMOVE_ITEM_TEXT = 'Remove item';
+      var REMOVE_ITEM_TEXT = 'Remove barang';
       var removeButton = Object.assign(document.createElement('button'), (_d = {
         type: 'button',
         className: button
@@ -4455,7 +4455,7 @@ function get(obj, path) {
         list.push(toString(value));
       } else if (isArray(value)) {
         arr = true;
-        // Search each item in the array.
+        // Search each barang in the array.
         for (let i = 0, len = value.length; i < len; i += 1) {
           deepGet(value[i], path, index + 1);
         }
@@ -6834,7 +6834,7 @@ if (false) {}
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -6848,14 +6848,14 @@ if (false) {}
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
@@ -6868,7 +6868,7 @@ if (false) {}
 /******/ 			return getter;
 /******/ 		};
 /******/ 	}();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	!function() {
 /******/ 		// define getter functions for harmony exports
@@ -6880,12 +6880,12 @@ if (false) {}
 /******/ 			}
 /******/ 		};
 /******/ 	}();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	!function() {
 /******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
 /******/ 	}();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	!function() {
 /******/ 		// define __esModule on exports
@@ -6896,7 +6896,7 @@ if (false) {}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	}();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.

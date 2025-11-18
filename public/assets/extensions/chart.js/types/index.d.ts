@@ -381,7 +381,7 @@ export type PolarAreaAnimationOptions = DoughnutAnimationOptions;
 
 export interface PolarAreaControllerChartOptions {
   /**
-   * Starting angle to draw arcs for the first item in a dataset. In degrees, 0 is at top.
+   * Starting angle to draw arcs for the first barang in a dataset. In degrees, 0 is at top.
    * @default 0
    */
   startAngle: number;
@@ -730,13 +730,13 @@ export type InteractionModeFunction = (
 export interface InteractionModeMap {
   /**
    * Returns items at the same index. If the options.intersect parameter is true, we only return items if we intersect something
-   * If the options.intersect mode is false, we find the nearest item and return the items at the same index as that item
+   * If the options.intersect mode is false, we find the nearest barang and return the items at the same index as that barang
    */
   index: InteractionModeFunction;
 
   /**
    * Returns items in the same dataset. If the options.intersect parameter is true, we only return items if we intersect something
-   * If the options.intersect is false, we find the nearest item and return the items in that dataset
+   * If the options.intersect is false, we find the nearest barang and return the items in that dataset
    */
   dataset: InteractionModeFunction;
   /**
@@ -780,22 +780,22 @@ export declare const layouts: {
    * Register a box to a chart.
    * A box is simply a reference to an object that requires layout. eg. Scales, Legend, Title.
    * @param {Chart} chart - the chart to use
-   * @param {LayoutItem} item - the item to add to be laid out
+   * @param {LayoutItem} item - the barang to add to be laid out
    */
   addBox(chart: Chart, item: LayoutItem): void;
 
   /**
    * Remove a layoutItem from a chart
    * @param {Chart} chart - the chart to remove the box from
-   * @param {LayoutItem} layoutItem - the item to remove from the layout
+   * @param {LayoutItem} layoutItem - the barang to remove from the layout
    */
   removeBox(chart: Chart, layoutItem: LayoutItem): void;
 
   /**
-   * Sets (or updates) options on the given `item`.
-   * @param {Chart} chart - the chart in which the item lives (or will be added to)
-   * @param {LayoutItem} item - the item to configure with the given options
-   * @param options - the new item options.
+   * Sets (or updates) options on the given `barang`.
+   * @param {Chart} chart - the chart in which the barang lives (or will be added to)
+   * @param {LayoutItem} item - the barang to configure with the given options
+   * @param options - the new barang options.
    */
   configure(
     chart: Chart,
@@ -1568,7 +1568,7 @@ export interface CoreInteractionOptions {
    */
   mode: InteractionMode;
   /**
-   * if true, the hover mode only applies when the mouse position intersects an item on the chart.
+   * if true, the hover mode only applies when the mouse position intersects an barang on the chart.
    * @default true
    */
   intersect: boolean;
@@ -2285,7 +2285,7 @@ export interface LegendItem {
   fontColor?: Color;
 
   /**
-   * If true, this item represents a hidden dataset. Label will be rendered with a strike-through effect
+   * If true, this barang represents a hidden dataset. Label will be rendered with a strike-through effect
    */
   hidden?: boolean;
 
@@ -2381,15 +2381,15 @@ export interface LegendOptions<TType extends ChartType> {
    */
   reverse: boolean;
   /**
-   * A callback that is called when a click event is registered on a label item.
+   * A callback that is called when a click event is registered on a label barang.
    */
   onClick(this: LegendElement<TType>, e: ChartEvent, legendItem: LegendItem, legend: LegendElement<TType>): void;
   /**
-   * A callback that is called when a 'mousemove' event is registered on top of a label item
+   * A callback that is called when a 'mousemove' event is registered on top of a label barang
    */
   onHover(this: LegendElement<TType>, e: ChartEvent, legendItem: LegendItem, legend: LegendElement<TType>): void;
   /**
-   * A callback that is called when a 'mousemove' event is registered outside of a previously hovered label item.
+   * A callback that is called when a 'mousemove' event is registered outside of a previously hovered label barang.
    */
   onLeave(this: LegendElement<TType>, e: ChartEvent, legendItem: LegendItem, legend: LegendElement<TType>): void;
 
@@ -2600,7 +2600,7 @@ export interface TooltipModel<TType extends ChartType> extends Element<AnyObject
   // The body lines that need to be rendered
   // Each object contains 3 parameters
   // before: string[] // lines of text before the line with the color square
-  // lines: string[]; // lines of text to render as the main item with color square
+  // lines: string[]; // lines of text to render as the main barang with color square
   // after: string[]; // lines of text to render after the main lines
   body: { before: string[]; lines: string[]; after: string[] }[];
   // lines of text that appear after the title but before the body
@@ -2616,7 +2616,7 @@ export interface TooltipModel<TType extends ChartType> extends Element<AnyObject
   // lines of text that form the footer
   footer: string[];
 
-  // Styles to render for each item in body[]. This is the styling of the squares in the tooltip
+  // Styles to render for each barang in body[]. This is the styling of the squares in the tooltip
   labelColors: TooltipLabelStyle[];
   labelTextColors: Color[];
   labelPointStyles: { pointStyle: PointStyle; rotation: number }[];
@@ -2775,7 +2775,7 @@ export interface TooltipOptions<TType extends ChartType = ChartType> extends Cor
    */
   titleAlign: Scriptable<TextAlign, ScriptableTooltipContext<TType>>;
   /**
-   * Spacing to add to top and bottom of each tooltip item.
+   * Spacing to add to top and bottom of each tooltip barang.
    * @default 2
    */
   bodySpacing: Scriptable<number, ScriptableTooltipContext<TType>>;
@@ -2917,22 +2917,22 @@ export interface TooltipItem<TType extends ChartType> {
   formattedValue: string;
 
   /**
-   * The dataset the item comes from
+   * The dataset the barang comes from
    */
   dataset: UnionToIntersection<ChartDataset<TType>>;
 
   /**
-   * Index of the dataset the item comes from
+   * Index of the dataset the barang comes from
    */
   datasetIndex: number;
 
   /**
-   * Index of this data item in the dataset
+   * Index of this data barang in the dataset
    */
   dataIndex: number;
 
   /**
-   * The chart element (point, arc, bar, etc.) for this tooltip item
+   * The chart element (point, arc, bar, etc.) for this tooltip barang
    */
   element: Element;
 }

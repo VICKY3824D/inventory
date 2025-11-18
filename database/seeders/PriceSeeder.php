@@ -15,12 +15,12 @@ class PriceSeeder extends Seeder
     {
         Price::create([
             'product_id' => 1,
-            'harga' => 75000.00,
+            'harga' => 97500.00,
         ]);
 
         Price::create([
             'product_id' => 2,
-            'harga' => 150000.00,
+            'harga' => 165000.00,
         ]);
 
         $this->command->info('Seeder Price berhasil!');

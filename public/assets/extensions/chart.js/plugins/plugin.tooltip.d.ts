@@ -11,7 +11,7 @@ export class Tooltip extends Element<import("../types/basic.js").AnyObject, impo
             y: number;
         };
         /**
-           * Gets the tooltip position nearest of the item nearest to the event position
+           * Gets the tooltip position nearest of the barang nearest to the event position
            */
         nearest(items: any, eventPosition: any): false | {
             x: any;
@@ -252,7 +252,7 @@ declare namespace positioners {
         y: number;
     };
     /**
-       * Gets the tooltip position nearest of the item nearest to the event position
+       * Gets the tooltip position nearest of the barang nearest to the event position
        */
     function nearest(items: any, eventPosition: any): false | {
         x: any;

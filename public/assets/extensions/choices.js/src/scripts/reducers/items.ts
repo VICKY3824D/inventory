@@ -47,7 +47,7 @@ export default function items(
     }
 
     case 'REMOVE_ITEM': {
-      // Set item to inactive
+      // Set barang to inactive
       return state.map((obj) => {
         const item = obj;
         if (item.id === action.id) {

@@ -18,7 +18,7 @@ function checkWindowSize() {
 }
 
 function listener() {
-  let menuItems = document.querySelectorAll(".menu-item.has-sub")
+  let menuItems = document.querySelectorAll(".menu-barang.has-sub")
   menuItems.forEach((menuItem) => {
     menuItem.querySelector(".menu-link").addEventListener("click", (e) => {
       e.preventDefault()
@@ -28,7 +28,7 @@ function listener() {
   })
 
   // Three level menu event listener
-  let submenuItems = document.querySelectorAll(".submenu-item.has-sub")
+  let submenuItems = document.querySelectorAll(".submenu-barang.has-sub")
 
   submenuItems.forEach((submenuItem) => {
     submenuItem

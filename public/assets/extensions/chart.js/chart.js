@@ -5653,7 +5653,7 @@ class Chart {
         this._dataChanges = [];
         instances[this.id] = this;
         if (!context || !canvas) {
-            console.error("Failed to create chart: can't acquire context from the given item");
+            console.error("Failed to create chart: can't acquire context from the given barang");
             return;
         }
         animator.listen(this, 'complete', onAnimationsComplete);

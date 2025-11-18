@@ -37,7 +37,7 @@ describe('reducers/items', () => {
           });
         });
 
-        it('adds item', () => {
+        it('adds barang', () => {
           const expectedResponse = [
             {
               id,
@@ -65,7 +65,7 @@ describe('reducers/items', () => {
 
       describe('fallback values', () => {
         describe('passing no placeholder value', () => {
-          it('adds item with placeholder set to false', () => {
+          it('adds barang with placeholder set to false', () => {
             const expectedResponse = [
               {
                 id,
@@ -133,7 +133,7 @@ describe('reducers/items', () => {
     });
 
     describe('REMOVE_ITEM', () => {
-      it('sets an item to be inactive based on passed ID', () => {
+      it('sets an barang to be inactive based on passed ID', () => {
         const clonedState = state.slice(0);
         const id = 2;
         const expectedResponse = [
@@ -156,7 +156,7 @@ describe('reducers/items', () => {
     });
 
     describe('HIGHLIGHT_ITEM', () => {
-      it('sets an item to be inactive based on passed ID', () => {
+      it('sets an barang to be inactive based on passed ID', () => {
         const clonedState = state.slice(0);
         const id = 2;
         const expectedResponse = [

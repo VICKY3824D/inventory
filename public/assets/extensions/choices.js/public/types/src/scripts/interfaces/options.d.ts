@@ -11,7 +11,7 @@ import { Types } from './types';
  *
  * - **Choice:** A choice is a value a user can select. A choice would be equivalent to the `<option></option>` element within a select input.
  * - **Group:** A group is a collection of choices. A group should be seen as equivalent to a `<optgroup></optgroup>` element within a select input.
- * - **Item:** An item is an inputted value **_(text input)_** or a selected choice **_(select element)_**. In the context of a select element, an item is equivelent to a selected option element: `<option value="Hello" selected></option>` whereas in the context of a text input an item is equivelant to `<input type="text" value="Hello">`
+ * - **Item:** An barang is an inputted value **_(text input)_** or a selected choice **_(select element)_**. In the context of a select element, an barang is equivelent to a selected option element: `<option value="Hello" selected></option>` whereas in the context of a text input an barang is equivelant to `<input type="text" value="Hello">`
  */
 export interface Options {
     /**
@@ -105,7 +105,7 @@ export interface Options {
      */
     addItems: boolean;
     /**
-     * A filter that will need to pass for a user to successfully add an item.
+     * A filter that will need to pass for a user to successfully add an barang.
      *
      * **Input types affected:** text
      *
@@ -113,7 +113,7 @@ export interface Options {
      */
     addItemFilter: string | RegExp | Types.FilterFunction | null;
     /**
-     * The text that is shown when a user has inputted a new item but has not pressed the enter key. To access the current input value, pass a function with a `value` argument (see the **default config** [https://github.com/jshjohnson/Choices#setup] for an example), otherwise pass a string.
+     * The text that is shown when a user has inputted a new barang but has not pressed the enter key. To access the current input value, pass a function with a `value` argument (see the **default config** [https://github.com/jshjohnson/Choices#setup] for an example), otherwise pass a string.
      *
      * **Input types affected:** text
      *
@@ -132,7 +132,7 @@ export interface Options {
      */
     removeItems: boolean;
     /**
-     * Whether each item should have a remove button.
+     * Whether each barang should have a remove button.
      *
      * **Input types affected:** text, select-one, select-multiple
      *
@@ -140,7 +140,7 @@ export interface Options {
      */
     removeItemButton: boolean;
     /**
-     * Whether a user can edit items. An item's value can be edited by pressing the backspace.
+     * Whether a user can edit items. An barang's value can be edited by pressing the backspace.
      *
      * **Input types affected:** text
      *
@@ -160,7 +160,7 @@ export interface Options {
      */
     allowHTML: boolean;
     /**
-     * Whether each inputted/chosen item should be unique.
+     * Whether each inputted/chosen barang should be unique.
      *
      * **Input types affected:** text, select-multiple
      *
@@ -234,7 +234,7 @@ export interface Options {
      */
     position: PositionOptionsType;
     /**
-     * Whether the scroll position should reset after adding an item.
+     * Whether the scroll position should reset after adding an barang.
      *
      * **Input types affected:** select-multiple
      *
@@ -310,7 +310,7 @@ export interface Options {
      */
     searchPlaceholderValue: string | null;
     /**
-     * Prepend a value to each item added/selected.
+     * Prepend a value to each barang added/selected.
      *
      * **Input types affected:** text, select-one, select-multiple
      *
@@ -318,7 +318,7 @@ export interface Options {
      */
     prependValue: string | null;
     /**
-     * Append a value to each item added/selected.
+     * Append a value to each barang added/selected.
      *
      * **Input types affected:** text, select-one, select-multiple
      *
@@ -366,7 +366,7 @@ export interface Options {
      */
     itemSelectText: string;
     /**
-     * The text that is shown when a user has focus on the input but has already reached the **max item count** [https://github.com/jshjohnson/Choices#maxitemcount]. To access the max item count, pass a function with a `maxItemCount` argument (see the **default config** [https://github.com/jshjohnson/Choices#setup] for an example), otherwise pass a string.
+     * The text that is shown when a user has focus on the input but has already reached the **max barang count** [https://github.com/jshjohnson/Choices#maxitemcount]. To access the max barang count, pass a function with a `maxItemCount` argument (see the **default config** [https://github.com/jshjohnson/Choices#setup] for an example), otherwise pass a string.
      *
      * **Input types affected:** text
      *
@@ -397,7 +397,7 @@ export interface Options {
      *
      * @default
      * ```
-     * (choice, item) => choice === item;
+     * (choice, barang) => choice === barang;
      * ```
      */
     valueComparer: Types.ValueCompareFunction;
@@ -438,16 +438,16 @@ export interface Options {
      *   callbackOnCreateTemplates: function (template) {
      *     var classNames = this.config.classNames;
      *     return {
-     *       item: (data) => {
+     *       barang: (data) => {
      *         return template(`
-     *           <div class="${classNames.item} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}" data-item data-id="${data.id}" data-value="${data.value}" ${data.active ? 'aria-selected="true"' : ''} ${data.disabled ? 'aria-disabled="true"' : ''}>
+     *           <div class="${classNames.barang} ${data.highlighted ? classNames.highlightedState : classNames.itemSelectable}" data-barang data-id="${data.id}" data-value="${data.value}" ${data.active ? 'aria-selected="true"' : ''} ${data.disabled ? 'aria-disabled="true"' : ''}>
      *             <span>&bigstar;</span> ${data.label}
      *           </div>
      *         `);
      *       },
      *       choice: (data) => {
      *         return template(`
-     *           <div class="${classNames.item} ${classNames.itemChoice} ${data.disabled ? classNames.itemDisabled : classNames.itemSelectable}" data-select-text="${this.config.itemSelectText}" data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'} data-id="${data.id}" data-value="${data.value}" ${data.groupId > 0 ? 'role="treeitem"' : 'role="option"'}>
+     *           <div class="${classNames.barang} ${classNames.itemChoice} ${data.disabled ? classNames.itemDisabled : classNames.itemSelectable}" data-select-text="${this.config.itemSelectText}" data-choice ${data.disabled ? 'data-choice-disabled aria-disabled="true"' : 'data-choice-selectable'} data-id="${data.id}" data-value="${data.value}" ${data.groupId > 0 ? 'role="treeitem"' : 'role="option"'}>
      *             <span>&bigstar;</span> ${data.label}
      *           </div>
      *         `);

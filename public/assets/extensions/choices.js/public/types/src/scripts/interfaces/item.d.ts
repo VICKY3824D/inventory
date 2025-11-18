@@ -3,4 +3,4 @@ export interface Item extends Choice {
     choiceId?: number;
     highlighted?: boolean;
 }
-//# sourceMappingURL=item.d.ts.map
+//# sourceMappingURL=barang.d.ts.map

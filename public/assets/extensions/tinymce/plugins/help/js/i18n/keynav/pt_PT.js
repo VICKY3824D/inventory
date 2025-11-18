@@ -15,7 +15,7 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.pt_PT',
   '  <dd>Windows, Linux ou macOS: Ctrl+F9\n' +
   '</dl>\n' +
   '\n' +
-  '<p>A navegação começará no primeiro item de IU, que estará realçado ou sublinhado, no caso do primeiro item no\n' +
+  '<p>A navegação começará no primeiro barang de IU, que estará realçado ou sublinhado, no caso do primeiro barang no\n' +
   '  caminho do elemento do rodapé.</p>\n' +
   '\n' +
   '<h1>Navegar entre secções de IU</h1>\n' +
@@ -68,10 +68,10 @@ tinymce.Resource.add('tinymce.html-i18n.help-keynav.pt_PT',
   '<p>Se o foco atual estiver no "topo" de determinada secção de IU, premir a tecla <strong>Esc</strong> também fecha\n' +
   '  completamente a navegação com teclado.</p>\n' +
   '\n' +
-  '<h1>Executar um item de menu ou botão da barra de ferramentas</h1>\n' +
+  '<h1>Executar um barang de menu ou botão da barra de ferramentas</h1>\n' +
   '\n' +
-  '<p>Quando o item de menu ou o botão da barra de ferramentas pretendido estiver realçado, prima <strong>Retrocesso</strong>, <strong>Enter</strong>\n' +
-  '  ou a <strong>Barra de espaço</strong> para executar o item.</p>\n' +
+  '<p>Quando o barang de menu ou o botão da barra de ferramentas pretendido estiver realçado, prima <strong>Retrocesso</strong>, <strong>Enter</strong>\n' +
+  '  ou a <strong>Barra de espaço</strong> para executar o barang.</p>\n' +
   '\n' +
   '<h1>Navegar em diálogos sem separadores</h1>\n' +
   '\n' +

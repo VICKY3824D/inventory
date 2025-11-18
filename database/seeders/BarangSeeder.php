@@ -20,6 +20,8 @@ class BarangSeeder extends Seeder
             'ukuran' => 'XXL',
             'stok' => 17,
             'created_by' => 1,
+            'img' => 'hijab.png',
+            'deskripsi' => 'Hijab wanita ukuran XXL dengan bahan premium',
         ]);
 
         Barang::create([
@@ -28,6 +30,8 @@ class BarangSeeder extends Seeder
             'ukuran' => 'L',
             'stok' => 50,
             'created_by' => 2,
+            'img' => 'kemeja.png',
+            'deskripsi' => 'Kemeja pria ukuran L dengan bahan katun',
         ]);
 
         $this->command->info('Seeder Barang berhasil!');

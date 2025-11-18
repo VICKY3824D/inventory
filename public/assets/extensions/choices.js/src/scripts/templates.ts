@@ -133,7 +133,7 @@ const templates = {
       }
       div.dataset.deletable = '';
       /** @todo This MUST be localizable, not hardcoded! */
-      const REMOVE_ITEM_TEXT = 'Remove item';
+      const REMOVE_ITEM_TEXT = 'Remove barang';
       const removeButton = Object.assign(document.createElement('button'), {
         type: 'button',
         className: button,

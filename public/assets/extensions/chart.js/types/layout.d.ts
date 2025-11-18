@@ -4,39 +4,39 @@ export type LayoutPosition = 'left' | 'top' | 'right' | 'bottom' | 'center' | 'c
 
 export interface LayoutItem {
   /**
-   * The position of the item in the chart layout. Possible values are
+   * The position of the barang in the chart layout. Possible values are
    */
   position: LayoutPosition;
   /**
-   * The weight used to sort the item. Higher weights are further away from the chart area
+   * The weight used to sort the barang. Higher weights are further away from the chart area
    */
   weight: number;
   /**
-   * if true, and the item is horizontal, then push vertical boxes down
+   * if true, and the barang is horizontal, then push vertical boxes down
    */
   fullSize: boolean;
   /**
-   * Width of item. Must be valid after update()
+   * Width of barang. Must be valid after update()
    */
   width: number;
   /**
-   * Height of item. Must be valid after update()
+   * Height of barang. Must be valid after update()
    */
   height: number;
   /**
-   * Left edge of the item. Set by layout system and cannot be used in update
+   * Left edge of the barang. Set by layout system and cannot be used in update
    */
   left: number;
   /**
-   * Top edge of the item. Set by layout system and cannot be used in update
+   * Top edge of the barang. Set by layout system and cannot be used in update
    */
   top: number;
   /**
-   * Right edge of the item. Set by layout system and cannot be used in update
+   * Right edge of the barang. Set by layout system and cannot be used in update
    */
   right: number;
   /**
-   * Bottom edge of the item. Set by layout system and cannot be used in update
+   * Bottom edge of the barang. Set by layout system and cannot be used in update
    */
   bottom: number;
 
@@ -53,7 +53,7 @@ export interface LayoutItem {
    */
   getPadding?(): ChartArea;
   /**
-   * returns true if the layout item is horizontal (ie. top or bottom)
+   * returns true if the layout barang is horizontal (ie. top or bottom)
    */
   isHorizontal(): boolean;
   /**

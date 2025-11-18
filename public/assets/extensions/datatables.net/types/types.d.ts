@@ -162,7 +162,7 @@ export interface Config {
      * Delay the loading of server-side data until second draw
      */
     deferLoading?: number | number[];
- 
+
     /**
      * Feature control deferred rendering for additional speed of initialisation.
      */
@@ -603,9 +603,9 @@ export interface Api<T> {
 
     /**
      * Get jquery object
-     * 
+     *
      * @param selector jQuery selector to perform on the nodes inside the table's tbody tag.
-     * @param modifier Option used to specify how the content's of the selected columns should be ordered, and if paging or filtering in the table should be taken into account. 
+     * @param modifier Option used to specify how the content's of the selected columns should be ordered, and if paging or filtering in the table should be taken into account.
      * @returns JQuery object with the matched elements in it's results set
      */
     $(selector: string | Node | Node[] | JQuery, modifier?: ApiSelectorModifier): JQuery;
@@ -633,7 +633,7 @@ export interface Api<T> {
 
     /**
      * Clear the table of all data.
-     * 
+     *
      * @returns DataTables Api instance.
      */
     clear(): Api<T>;
@@ -659,14 +659,14 @@ export interface Api<T> {
 
     /**
      * Get the number of entries in an API instance's result set, regardless of multi-table grouping (e.g. any data, selected rows, etc). Since: 1.10.8
-     * 
+     *
      * @returns The number of items in the API instance's result set
      */
     count(): number;
 
     /**
      * Get the data for the whole table.
-     * 
+     *
      * @returns DataTables Api instance with the data for each row in the result set
      */
     data(): Api<T>;
@@ -690,7 +690,7 @@ export interface Api<T> {
     /**
      * Iterate over the contents of the API result set.
      *
-     * @param fn Callback function which is called for each item in the API instance result set. The callback is called with three parameters
+     * @param fn Callback function which is called for each barang in the API instance result set. The callback is called with three parameters
      * @returns Original API instance that was used. For chaining.
      */
     each(fn: ((value: any, index: number, dt: Api<any>) => void)): Api<any>;
@@ -704,21 +704,21 @@ export interface Api<T> {
     eq(idx: number): Api<any>;
 
     /**
-     * Iterate over the result set of an API instance and test each item, creating a new instance from those items which pass.
+     * Iterate over the result set of an API instance and test each barang, creating a new instance from those items which pass.
      *
-     * @param fn Callback function which is called for each item in the API instance result set. The callback is called with three parameters.
+     * @param fn Callback function which is called for each barang in the API instance result set. The callback is called with three parameters.
      * @returns New API instance with the values from the result set which passed the test in the callback.
      */
     filter(fn: ((value: any, index: number, dt: Api<any>) => boolean)): Api<Array<any>>;
 
     /**
      * Flatten a 2D array structured API instance to a 1D array structure.
-     * 
+     *
      * @returns New API instance with the 2D array values reduced to a 1D array.
      */
     flatten(): Api<Array<any>>;
 
-    /** 
+    /**
      * Look up a language token that was defined in the DataTables' language initialisation object.
      *
      * @param token The language token to lookup from the language object.
@@ -733,20 +733,20 @@ export interface Api<T> {
      * Find the first instance of a value in the API instance's result set.
      *
      * @param value Value to find in the instance's result set.
-     * @returns The index of the item in the result set, or -1 if not found.
+     * @returns The index of the barang in the result set, or -1 if not found.
      */
     indexOf(value: any): number;
 
     /**
      * Get the initialisation options used for the table. Since: DataTables 1.10.6
-     * 
+     *
      * @returns Configuration object
      */
     init(): Config;
 
     /**
      * Iterate over a result set of table, row, column or cell indexes
-     * 
+     *
      * @param type Iterator type
      * @param callback Callback function that is executed on each iteration. For the parameters passed to the function, please refer to the documentation above. As of this is executed in the scope of an API instance which has its context set to only the table in question.
      * @param returns Indicate if the callback function will return values or not. If set to true a new API instance will be returns with the return values from the callback function in its result set. If not set, or false the original instance will be returned for chaining, if no values are returned by the callback method.
@@ -762,7 +762,7 @@ export interface Api<T> {
 
     /**
      * Iterate over a result set of table, row, column or cell indexes
-     * 
+     *
      * @param flatten If true the result set of the returned API instance will be a 1D array (i.e. flattened into a single array). If false (or not specified) each result will be concatenated to the instance's result set. Note that this is only relevant if you are returning arrays from the callback.
      * @param type Iterator type
      * @param callback Callback function that is executed on each iteration. For the parameters passed to the function, please refer to the documentation above. As of this is executed in the scope of an API instance which has its context set to only the table in question.
@@ -789,7 +789,7 @@ export interface Api<T> {
      * Find the last instance of a value in the API instance's result set.
      *
      * @param value Value to find in the instance's result set.
-     * @returns The index of the item in the result set, or -1 if not found.
+     * @returns The index of the barang in the result set, or -1 if not found.
      */
     lastIndexOf(value: any): number;
 
@@ -801,7 +801,7 @@ export interface Api<T> {
     /**
      * Iterate over the result set of an API instance, creating a new API instance from the values returned by the callback.
      *
-     * @param fn Callback function which is called for each item in the API instance result set. The callback is called with three parameters.
+     * @param fn Callback function which is called for each barang in the API instance result set. The callback is called with three parameters.
      * @returns New API instance with the values in the result set as those returned by the callback.
      */
     map(fn: ((value: any, index: number, dt: Api<any>) => any)): Api<any>;
@@ -878,9 +878,9 @@ export interface Api<T> {
     pluck(property: number | string): Api<any>;
 
     /**
-     * Remove the last item from an API instance's result set.
-     * 
-     * @returns Item removed form the result set (was previously the last item in the result set).
+     * Remove the last barang from an API instance's result set.
+     *
+     * @returns Item removed form the result set (was previously the last barang in the result set).
      */
     pop(): any;
 
@@ -900,7 +900,7 @@ export interface Api<T> {
     /**
      * Apply a callback function against and accumulator and each element in the Api's result set (left-to-right).
      *
-     * @param fn Callback function which is called for each item in the API instance result set. The callback is called with four parameters.
+     * @param fn Callback function which is called for each barang in the API instance result set. The callback is called with four parameters.
      * @param initialValue Value to use as the first argument of the first call to the fn callback.
      * @returns Result from the final call to the fn callback function.
      */
@@ -909,7 +909,7 @@ export interface Api<T> {
     /**
      * Apply a callback function against and accumulator and each element in the Api's result set (right-to-left).
      *
-     * @param fn Callback function which is called for each item in the API instance result set. The callback is called with four parameters.
+     * @param fn Callback function which is called for each barang in the API instance result set. The callback is called with four parameters.
      * @param initialValue Value to use as the first argument of the first call to the fn callback.
      * @returns Result from the final call to the fn callback function.
      */
@@ -917,7 +917,7 @@ export interface Api<T> {
 
     /**
      * Reverse the result set of the API instance and return the original array.
-     * 
+     *
      * @returns The original API instance with the result set in reversed order.
      */
     reverse(): Api<any>;
@@ -934,7 +934,7 @@ export interface Api<T> {
 
     /**
      * Get current search
-     * 
+     *
      * @returns The currently applied global search. This may be an empty string if no search is applied.
      */
     search(): string;
@@ -952,21 +952,21 @@ export interface Api<T> {
 
     /**
      * Obtain the table's settings object
-     * 
+     *
      * @returns DataTables API instance with the settings objects for the tables in the context in the result set
      */
     settings(): Api<InternalSettings>;
 
     /**
-     * Remove the first item from an API instance's result set.
-     * 
-     * @returns Item removed form the result set (was previously the first item in the result set).
+     * Remove the first barang from an API instance's result set.
+     *
+     * @returns Item removed form the result set (was previously the first barang in the result set).
      */
     shift(): any;
 
     /**
      * Create an independent copy of the API instance.
-     * 
+     *
      * @returns DataTables API instance
      */
     slice(): Api<any>;
@@ -1012,28 +1012,28 @@ export interface Api<T> {
 
     /**
      * Convert the API instance to a jQuery object, with the objects from the instance's result set in the jQuery result set.
-     * 
+     *
      * @returns jQuery object which contains the values from the API instance's result set.
      */
     to$(): JQuery;
 
     /**
      * Create a native Javascript array object from an API instance.
-     * 
+     *
      * @returns Javascript array which contains the values from the API instance's result set.
      */
     toArray(): any[];
 
     /**
      * Convert the API instance to a jQuery object, with the objects from the instance's result set in the jQuery result set.
-     * 
+     *
      * @returns jQuery object which contains the values from the API instance's result set.
      */
     toJQuery(): JQuery;
 
     /**
      * Create a new API instance containing only the unique items from a the elements in an instance's result set.
-     * 
+     *
      * @returns New Api instance which contains the unique items from the original instance's result set, in its own result set.
      */
     unique(): Api<any>;
@@ -1112,7 +1112,7 @@ export interface State {
 
 /**
  * "table" - loop over the context's (i.e. the tables) for the instance
- * 
+ *
  * @param settings Table settings object
  * @param counter Loop counter
  */
@@ -1120,29 +1120,29 @@ type InteratorTable = (settings: InternalSettings, counter: number) => any;
 
 /**
  * "cell" - loop over each table and cell in the result set
- * 
+ *
  * @param settings Table settings object
  * @param rowIndex Row index
  * @param columnIndex Column index
  * @param tableCounter Table counter (outer)
  * @param cellCounter Cell counter (inner)
- */        
+ */
 type InteratorCell = (settings: InternalSettings, rowIndex: number, columnIndex: number, tableCounter: number, cellCounter: number) => any;
 
 /**
- * "columns" - loop over each item in the result set
- * 
+ * "columns" - loop over each barang in the result set
+ *
  * @param settings Table settings object
- * @param resultItem Result set item
+ * @param resultItem Result set barang
  * @param counter Loop counter
  */
 type InteratorColumns = (settings: InternalSettings, resultItem: any, counter: number) => any;
 
 /**
  * "column" - loop over each table and column in the result set
- * 
+ *
  * @param settings Table settings object
- * @param columnIndex Column index 
+ * @param columnIndex Column index
  * @param tableCounter Table counter (outer)
  * @param columnCounter Column counter (inner)
  */
@@ -1150,7 +1150,7 @@ type InteratorColumn = (settings: InternalSettings, columnIndex: number, tableCo
 
 /**
  * "column-rows" - loop over each table, column and row in the result set applying selector-modifier.
- * 
+ *
  * @param settings Table settings object
  * @param columnIndex Column index
  * @param tableCounter Table counter (outer)
@@ -1161,7 +1161,7 @@ type InteratorColumnRows = (settings: InternalSettings, columnIndex: number, tab
 
 /**
  * "row" - loop over each table and row in the result set
- * 
+ *
  * @param settings Table settings object
  * @param rowIndex Row index
  * @param tableCounter Table counter (outer)
@@ -1170,10 +1170,10 @@ type InteratorColumnRows = (settings: InternalSettings, columnIndex: number, tab
 type InteratorRow = (settings: InternalSettings, rowIndex: number, tableCounter: number, rowCounter: number) => any;
 
 /**
- * "rows" - loop over each item in the result set
- * 
+ * "rows" - loop over each barang in the result set
+ *
  * @param settings Table settings object
- * @param resultItem Result set item
+ * @param resultItem Result set barang
  * @param counter Loop counter
  */
 type InteratorRows = (settings: InternalSettings, resultItem: any, counter: number) => any;
@@ -1181,14 +1181,14 @@ type InteratorRows = (settings: InternalSettings, resultItem: any, counter: numb
 export interface ApiAjax {
     /**
      * Get the latest JSON data obtained from the last Ajax request DataTables made
-     * 
+     *
      * @returns JSON object that was last loaded/
      */
     json(): object;
 
     /**
      * Get the data submitted by DataTables to the server in the last Ajax request
-     * 
+     *
      * @returns object containing the data submitted by DataTables
      */
     params(): object;
@@ -1204,7 +1204,7 @@ export interface ApiAjax {
 
     /**
      * Reload the table data from the Ajax data source
-     * 
+     *
      * @returns URL set as the Ajax data source for the table.
      */
     url(): string;
@@ -1221,7 +1221,7 @@ export interface ApiAjax {
 export interface ApiPage {
     /**
      * Get the current page of the table.
-     * 
+     *
      * @returns Currently displayed page number
      */
     (): number;
@@ -1236,14 +1236,14 @@ export interface ApiPage {
 
     /**
      * Get paging information about the table
-     * 
+     *
      * @returns Object with information about the table's paging state.
      */
     info(): ApiPageInfo;
 
     /**
      * Get the table's page length.
-     * 
+     *
      * @returns Current page length.
      */
     len(): number;
@@ -1260,7 +1260,7 @@ export interface ApiPage {
 export interface ApiOrder {
     /**
      * Get the ordering applied to the table.
-     * 
+     *
      * @returns Array of arrays containing information about the currently applied sort. This 2D array is the same format as the array used for setting the order to apply to the table
      */
     (): Array<Array<(string | number)>>;
@@ -1283,7 +1283,7 @@ export interface ApiOrder {
 
     /**
      * Set the table's fixed ordering. Note this doesn't actually perform the order, but rather queues it up - use draw() to perform the ordering.
-     * 
+     *
      * @param order Used to indicate whether the ordering should be performed before or after the users own ordering.
      * @returns DataTables Api instance
      */
@@ -1303,28 +1303,28 @@ export interface ApiOrder {
 export interface ApiState<T> {
     /**
      * Get the last saved state of the table
-     * 
+     *
      * @returns State saved object
      */
     (): State;
 
     /**
      * Clear the saved state of the table.
-     * 
+     *
      * @returns The API instance that was used, available for chaining.
      */
     clear(): Api<any>;
 
     /**
      * Get the table state that was loaded during initialisation.
-     * 
+     *
      * @returns State saved object. See state() for the object format.
      */
     loaded(): State;
 
     /**
      * Trigger a state save.
-     * 
+     *
      * @returns The API instance that was used, available for chaining.
      */
     save(): Api<T>;
@@ -1364,7 +1364,7 @@ export interface ApiCellMethods<T> extends Omit<Api<T>, 'render'> {
 
     /**
      * Get data for the selected cell
-     * 
+     *
      * @returns the data from the cell
      */
     data(): any;
@@ -1379,7 +1379,7 @@ export interface ApiCellMethods<T> extends Omit<Api<T>, 'render'> {
 
     /**
      * Get index information about the selected cell
-     * 
+     *
      * @returns Object with index information for the selected cell.
      */
     index(): CellIdxWithVisible;
@@ -1394,7 +1394,7 @@ export interface ApiCellMethods<T> extends Omit<Api<T>, 'render'> {
 
     /**
      * Get the DOM element for the selected cell
-     * 
+     *
      * @returns The TD / TH cell the selector resolved to
      */
     node(): Node;
@@ -1425,7 +1425,7 @@ export interface ApiCells<T> {
      * @returns DataTables API instance with selected cells
      */
     (cellSelector: CellSelector, modifier?: ApiSelectorModifier): ApiCellsMethods<T>;
- 
+
     /**
      * Select cells found by both row and column selectors
      *
@@ -1448,7 +1448,7 @@ export interface ApiCellsMethods<T> extends Omit<Api<T>, 'data' | 'render'> {
 
     /**
      * Get data for the selected cells
-     * 
+     *
      * @returns DataTables API instance with data for each cell in the selected columns in the result set. This is a 1D array with each entry being the data for the cells from the selected column.
      */
     data(): Api<Array<T>>;
@@ -1520,28 +1520,28 @@ export interface ApiColumnMethods {
 
     /**
      * Get the data for the cells in the selected column.
-     * 
+     *
      * @returns DataTables API instance with data for each cell in the selected columns in the result set. This is a 1D array with each entry being the data for the cells from the selected column.
      */
     data(): Api<Array<any>>;
 
     /**
      * Get the data source property for the selected column.
-     * 
+     *
      * @returns the data source property
      */
     dataSrc(): number | string | (() => string);
 
     /**
      * Get the footer th / td cell for the selected column(s).
-     * 
+     *
      * @returns HTML element for the footer of the column(s)
      */
     footer(): HTMLElement;
 
     /**
      * Get the header th / td cell for a column(s).
-     * 
+     *
      * @returns HTML element for the header of the column(s)
      */
     header(): HTMLElement;
@@ -1556,7 +1556,7 @@ export interface ApiColumnMethods {
 
     /**
      * Obtain the th / td nodes for the selected column
-     * 
+     *
      * @returns DataTables API instance with each cell's node from the selected columns in the result set. This is a 1D array with each entry being the node for the cells from the selected column.
      */
     nodes(): Api<Array<Node>>;
@@ -1571,7 +1571,7 @@ export interface ApiColumnMethods {
 
     /**
      * Get the currently applied column search.
-     * 
+     *
      * @returns the currently applied column search.
      */
     search(): string;
@@ -1589,7 +1589,7 @@ export interface ApiColumnMethods {
 
     /**
      * Get the visibility of the selected column.
-     * 
+     *
      * @returns true if the column is visible, false if it is not.
      */
     visible(): boolean;
@@ -1612,7 +1612,7 @@ export interface ApiColumns<T> {
      * @returns DataTables API instance with selected columns in the result set.
      */
     (modifier?: ApiSelectorModifier): ApiColumnsMethods | Api<Array<any>>;
-    
+
     /**
      * Select columns found by a cell selector
      *
@@ -1624,7 +1624,7 @@ export interface ApiColumns<T> {
 
     /**
      * Recalculate the column widths for layout.
-     * 
+     *
      * @returns DataTables API instance.
      */
     adjust(): Api<T>;
@@ -1642,14 +1642,14 @@ export interface ApiColumnsMethods {
 
     /**
      * Obtain the data for the columns from the selector
-     * 
+     *
      * @returns DataTables API instance with data for each cell in the selected columns in the result set. This is a 2D array with the top level array entries for each column matched by the columns() selector.
      */
     data(): Api<Array<Array<any>>>;
 
     /**
      * Get the data source property for the selected columns.
-     * 
+     *
      * @returns API instance with the result set containing the data source parameters for the selected columns as configured by
      */
     dataSrc(): Api<any>;
@@ -1664,7 +1664,7 @@ export interface ApiColumnsMethods {
 
     /**
      * Get the footer th / td cell for the selected columna.
-     * 
+     *
      * @returns HTML element for the footer of the columna
      */
     footer(): HTMLElement;
@@ -1679,14 +1679,14 @@ export interface ApiColumnsMethods {
 
     /**
      * Get the header th / td cell for a columna.
-     * 
+     *
      * @returns HTML element for the header of the columna
      */
     header(): HTMLElement;
 
     /**
      * Obtain the th / td nodes for the selected columns
-     * 
+     *
      * @returns DataTables API instance with each cell's node from the selected columns in the result set. This is a 2D array with the top level array entries for each column matched by the columns() selector.
      */
     nodes(): Api<Array<Array<Node>>>;
@@ -1701,17 +1701,17 @@ export interface ApiColumnsMethods {
 
     /**
      * Get the currently applied columns search.
-     * 
+     *
      * @returns the currently applied columns search.
      */
     search(): Api<Array<string>>;
 
     /**
      * Set the search term for the columns from the selector. Note this doesn't actually perform the search.
-     * 
+     *
      * @param input Search string to apply to the selected columns.
      * @param regex Treat as a regular expression (true) or not (default, false).
-     * @param smart Perform smart search (default, true) or not (false). 
+     * @param smart Perform smart search (default, true) or not (false).
      * @param caseInsen Do case-insensitive matching (default, true) or not (false).
      * @returns DataTables Api instance.
      */
@@ -1719,7 +1719,7 @@ export interface ApiColumnsMethods {
 
     /**
      * Get the visibility of the selected columns.
-     * 
+     *
      * @returns true if the columns is visible, false if it is not.
      */
     visible(): boolean;
@@ -1738,7 +1738,7 @@ export interface ApiColumnsMethods {
 export interface ApiRowChildMethods<T> {
     /**
      * Get the child row(s) that have been set for a parent row
-     * 
+     *
      * @returns Query object with the child rows for the parent row in its result set, or undefined if there are no child rows set for the parent yet.
      */
     (): JQuery;
@@ -1762,28 +1762,28 @@ export interface ApiRowChildMethods<T> {
 
     /**
      * Hide the child row(s) of a parent row
-     * 
+     *
      * @returns DataTables API instance.
      */
     hide(): Api<any>;
 
     /**
      * Check if the child rows of a parent row are visible
-     * 
+     *
      * @returns boolean indicating whether the child rows are visible.
      */
     isShown(): boolean;
 
     /**
      * Remove child row(s) from display and release any allocated memory
-     * 
+     *
      * @returns DataTables API instance.
      */
     remove(): Api<any>;
 
     /**
      * Show the child row(s) of a parent row
-     * 
+     *
      * @returns DataTables API instance.
      */
     show(): Api<any>;
@@ -1792,21 +1792,21 @@ export interface ApiRowChildMethods<T> {
 export interface RowChildMethods<T> extends Api<T> {
     /**
      * Hide the child row(s) of a parent row
-     * 
+     *
      * @returns DataTables API instance.
      */
     hide(): Api<any>;
 
     /**
      * Remove child row(s) from display and release any allocated memory
-     * 
+     *
      * @returns DataTables API instance.
      */
     remove(): Api<any>;
 
     /**
      * Make newly defined child rows visible
-     * 
+     *
      * @returns DataTables API instance.
      */
     show(): Api<any>;
@@ -1847,7 +1847,7 @@ export interface ApiRowMethods<T> extends Omit<Api<T>, 'data'> {
 
     /**
      * Get the data for the selected row
-     * 
+     *
      * @returns Data source object for the data source of the row.
      */
     data(): T;
@@ -1871,7 +1871,7 @@ export interface ApiRowMethods<T> extends Omit<Api<T>, 'data'> {
 
     /**
      * Get the row index of the row column.
-     * 
+     *
      * @returns Row index
      */
     index(): number;
@@ -1885,14 +1885,14 @@ export interface ApiRowMethods<T> extends Omit<Api<T>, 'data'> {
 
     /**
      * Obtain the tr node for the selected row
-     * 
+     *
      * @returns tr element of the selected row or null if the element is not yet available
      */
     node(): Node;
 
     /**
      * Delete the selected row from the DataTable.
-     * 
+     *
      * @returns DataTables API instance with removed row reference in the result set
      */
     remove(): Api<Node>;
@@ -1960,7 +1960,7 @@ export interface ApiRowsMethods<T> extends Api<T> {
 
     /**
      * Get the row indexes of the selected rows.
-     * 
+     *
      * @returns DataTables API instance with selected row indexes in the result set.
      */
     indexes(): Api<Array<number>>;
@@ -1974,14 +1974,14 @@ export interface ApiRowsMethods<T> extends Api<T> {
 
     /**
      * Obtain the tr nodes for the selected rows
-     * 
+     *
      * @returns DataTables API instance with each row's node from the selected rows in the result set.
      */
     nodes(): Api<Array<Node>>;
 
     /**
      * Delete the selected rows from the DataTable.
-     * 
+     *
      * @returns DataTables API instance with references for the removed rows in the result set
      */
     remove(): Api<Array<any>>;
@@ -1991,35 +1991,35 @@ export interface ApiRowsMethods<T> extends Api<T> {
 export interface ApiTableMethods<T> extends Api<T> {
     /**
      * Get the tfoot node for the table in the API's context
-     * 
+     *
      * @returns HTML tbody node.
      */
     footer(): Node;
 
     /**
      * Get the thead node for the table in the API's context
-     * 
+     *
      * @returns HTML thead node.
      */
     header(): Node;
 
     /**
      * Get the tbody node for the table in the API's context
-     * 
+     *
      * @returns HTML tfoot node.
      */
     body(): Node;
 
     /**
      * Get the div container node for the table in the API's context
-     * 
+     *
      * @returns HTML div node.
      */
     container(): Node;
 
     /**
      * Get the table node for the table in the API's context
-     * 
+     *
      * @returns HTML table node for the selected table.
      */
     node(): Node;
@@ -2028,35 +2028,35 @@ export interface ApiTableMethods<T> extends Api<T> {
 export interface ApiTablesMethods<T> extends Api<T> {
     /**
      * Get the tfoot nodes for the tables in the API's context
-     * 
+     *
      * @returns Array of HTML tfoot nodes for all table in the API's context
      */
     footer(): Api<Array<Node>>;
 
     /**
      * Get the thead nodes for the tables in the API's context
-     * 
+     *
      * @returns Array of HTML thead nodes for all table in the API's context
      */
     header(): Api<Array<Node>>;
 
     /**
      * Get the tbody nodes for the tables in the API's context
-     * 
+     *
      * @returns Array of HTML tbody nodes for all table in the API's context
      */
     body(): Api<Array<Node>>;
 
     /**
      * Get the div container nodes for the tables in the API's context
-     * 
+     *
      * @returns Array of HTML div nodes for all table in the API's context
      */
     containers(): Api<Array<Node>>;
 
     /**
      * Get the table nodes for the tables in the API's context
-     * 
+     *
      * @returns Array of HTML table nodes for all table in the API's context
      */
     nodes(): Api<Array<Node>>;
@@ -2110,7 +2110,7 @@ export interface DataTablesStatic {
          * Get only visible tables (true) or all tables regardless of visibility (false).
          */
         visible: boolean;
-    
+
         /**
          * Return a DataTables API instance for the selected tables (true) or an array (false).
          */

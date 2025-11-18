@@ -260,7 +260,7 @@ class Choices implements Choices {
     }
 
     this._idNames = {
-      itemChoice: 'item-choice',
+      itemChoice: 'barang-choice',
     };
 
     if (this._isSelectElement) {
@@ -872,7 +872,7 @@ class Choices implements Choices {
     this.itemList.clear();
 
     // Create a fragment to store our list items
-    // (so we don't have to update the DOM for each item)
+    // (so we don't have to update the DOM for each barang)
     const itemListFragment = this._createItemsFragment(activeItems);
 
     // If we have items to add, append them
@@ -920,7 +920,7 @@ class Choices implements Choices {
     fragment: DocumentFragment = document.createDocumentFragment(),
     withinGroup = false,
   ): DocumentFragment {
-    // Create a fragment to store our list items (so we don't have to update the DOM for each item)
+    // Create a fragment to store our list items (so we don't have to update the DOM for each barang)
     const { renderSelectedChoices, searchResultLimit, renderChoiceLimit } =
       this.config;
     const filter = this._isSearching ? sortByScore : this.config.sorter;
@@ -1021,7 +1021,7 @@ class Choices implements Choices {
       fragment.appendChild(listItem);
     };
 
-    // Add each list item to list
+    // Add each list barang to list
     items.forEach(addItemToFragment);
 
     return fragment;
@@ -1068,7 +1068,7 @@ class Choices implements Choices {
       return;
     }
 
-    // Remove item associated with button
+    // Remove barang associated with button
     this._removeItem(itemToRemove);
     this._triggerChange(itemToRemove.value);
 
@@ -1093,7 +1093,7 @@ class Choices implements Choices {
 
     const passedId = element.dataset.id;
 
-    // We only want to select one item with a click
+    // We only want to select one barang with a click
     // so we deselect any items that aren't the target
     // unless shift is being pressed
     activeItems.forEach((item) => {
@@ -1105,7 +1105,7 @@ class Choices implements Choices {
     });
 
     // Focus input as without focus, a user cannot do anything with a
-    // highlighted item
+    // highlighted barang
     this.input.focus();
   }
 
@@ -1169,8 +1169,8 @@ class Choices implements Choices {
     const lastItem = activeItems[activeItems.length - 1];
     const hasHighlightedItems = activeItems.some((item) => item.highlighted);
 
-    // If editing the last item is allowed and there are not other selected items,
-    // we can edit the item value. Otherwise if we can remove items, remove all selected items
+    // If editing the last barang is allowed and there are not other selected items,
+    // we can edit the barang value. Otherwise if we can remove items, remove all selected items
     if (this.config.editItems && !hasHighlightedItems && lastItem) {
       this.input.value = lastItem.value;
       this.input.setWidth();
@@ -1178,7 +1178,7 @@ class Choices implements Choices {
       this._triggerChange(lastItem.value);
     } else {
       if (!hasHighlightedItems) {
-        // Highlight last item if none already highlighted
+        // Highlight last barang if none already highlighted
         this.highlightItem(lastItem, false);
       }
       this.removeHighlightedItems(true);
@@ -1738,7 +1738,7 @@ class Choices implements Choices {
       return;
     }
 
-    const item = target.closest('[data-button],[data-item],[data-choice]');
+    const item = target.closest('[data-button],[data-barang],[data-choice]');
     if (item instanceof HTMLElement) {
       const hasShiftKey = event.shiftKey;
       const { activeItems } = this._store;

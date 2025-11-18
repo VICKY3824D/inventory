@@ -41,7 +41,7 @@ export default function choices(
 
       /*
         A disabled choice appears in the choice dropdown but cannot be selected
-        A selected choice has been added to the passed input's value (added as an item)
+        A selected choice has been added to the passed input's value (added as an barang)
         An active choice appears within the choice dropdown
       */
       return [...state, choice as Choice];
@@ -50,7 +50,7 @@ export default function choices(
     case 'ADD_ITEM': {
       const addItemAction = action as AddItemAction;
 
-      // When an item is added and it has an associated choice,
+      // When an barang is added and it has an associated choice,
       // we want to disable it so it can't be chosen again
       if (addItemAction.choiceId > -1) {
         return state.map((obj) => {
@@ -69,7 +69,7 @@ export default function choices(
     case 'REMOVE_ITEM': {
       const removeItemAction = action as RemoveItemAction;
 
-      // When an item is removed and it has an associated choice,
+      // When an barang is removed and it has an associated choice,
       // we want to re-enable it so it can be chosen again
       if (removeItemAction.choiceId && removeItemAction.choiceId > -1) {
         return state.map((obj) => {

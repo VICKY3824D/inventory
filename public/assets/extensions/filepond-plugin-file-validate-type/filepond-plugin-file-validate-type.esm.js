@@ -35,7 +35,7 @@ const plugin = ({ addFilter, utils }) => {
         });
 
     const getItemType = item => {
-        // if the item is a url we guess the mime type by the extension
+        // if the barang is a url we guess the mime type by the extension
         let type = '';
         if (isString(item)) {
             const filename = getFilenameFromURL(item);
@@ -56,7 +56,7 @@ const plugin = ({ addFilter, utils }) => {
             return true;
         }
 
-        // gets the item type
+        // gets the barang type
         const type = getItemType(item);
 
         // no type detector, test now
@@ -88,7 +88,7 @@ const plugin = ({ addFilter, utils }) => {
         })
     );
 
-    // filtering if an item is allowed in hopper
+    // filtering if an barang is allowed in hopper
     addFilter('ALLOW_HOPPER_ITEM', (file, { query }) => {
         // if we are not doing file type validation exit
         if (!query('GET_ALLOW_FILE_TYPE_VALIDATION')) {
@@ -100,7 +100,7 @@ const plugin = ({ addFilter, utils }) => {
     });
 
     // called for each file that is loaded
-    // right before it is set to the item state
+    // right before it is set to the barang state
     // should return a promise
     addFilter(
         'LOAD_FILE',

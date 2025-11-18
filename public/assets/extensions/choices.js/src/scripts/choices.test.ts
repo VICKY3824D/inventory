@@ -744,7 +744,7 @@ describe('choices', () => {
         instance.passedElement.triggerEvent.reset();
       });
 
-      describe('no item passed', () => {
+      describe('no barang passed', () => {
         beforeEach(() => {
           output = instance.highlightItem();
         });
@@ -760,7 +760,7 @@ describe('choices', () => {
         });
       });
 
-      describe('item passed', () => {
+      describe('barang passed', () => {
         const item: Item = {
           id: 1234,
           value: 'Test',
@@ -785,7 +785,7 @@ describe('choices', () => {
             });
           });
 
-          describe('item with negative groupId', () => {
+          describe('barang with negative groupId', () => {
             beforeEach(() => {
               item.groupId = -1;
               output = instance.highlightItem(item);
@@ -805,7 +805,7 @@ describe('choices', () => {
             });
           });
 
-          describe('item without groupId', () => {
+          describe('barang without groupId', () => {
             beforeEach(() => {
               item.groupId = 1;
               output = instance.highlightItem(item);
@@ -865,7 +865,7 @@ describe('choices', () => {
         instance.passedElement.triggerEvent.reset();
       });
 
-      describe('no item passed', () => {
+      describe('no barang passed', () => {
         beforeEach(() => {
           output = instance.unhighlightItem();
         });
@@ -881,7 +881,7 @@ describe('choices', () => {
         });
       });
 
-      describe('item passed', () => {
+      describe('barang passed', () => {
         const item: Item = {
           id: 1234,
           value: 'Test',
@@ -906,7 +906,7 @@ describe('choices', () => {
             });
           });
 
-          describe('item with negative groupId', () => {
+          describe('barang with negative groupId', () => {
             beforeEach(() => {
               item.groupId = -1;
               output = instance.unhighlightItem(item);
@@ -926,7 +926,7 @@ describe('choices', () => {
             });
           });
 
-          describe('item without groupId', () => {
+          describe('barang without groupId', () => {
             beforeEach(() => {
               item.groupId = 1;
               output = instance.highlightItem(item);
@@ -996,7 +996,7 @@ describe('choices', () => {
         expect(output).to.eql(instance);
       });
 
-      it('highlights each item in store', () => {
+      it('highlights each barang in store', () => {
         expect(highlightItemStub.callCount).to.equal(items.length);
         expect(highlightItemStub.firstCall.args[0]).to.equal(items[0]);
         expect(highlightItemStub.lastCall.args[0]).to.equal(items[1]);
@@ -1036,7 +1036,7 @@ describe('choices', () => {
         expect(output).to.eql(instance);
       });
 
-      it('unhighlights each item in store', () => {
+      it('unhighlights each barang in store', () => {
         expect(unhighlightItemStub.callCount).to.equal(items.length);
         expect(unhighlightItemStub.firstCall.args[0]).to.equal(items[0]);
         expect(unhighlightItemStub.lastCall.args[0]).to.equal(items[1]);
@@ -1392,7 +1392,7 @@ describe('choices', () => {
             output = instance.getValue(true);
           });
 
-          it('returns all active item values', () => {
+          it('returns all active barang values', () => {
             expect(output).to.eql(items.map((item) => item.value));
           });
         });
@@ -1405,7 +1405,7 @@ describe('choices', () => {
             output = instance.getValue(false);
           });
 
-          it('returns a single active item', () => {
+          it('returns a single active barang', () => {
             expect(output).to.equal(items[0]);
           });
         });
@@ -1455,7 +1455,7 @@ describe('choices', () => {
         instance._removeItem.reset();
       });
 
-      it('removes each active item in store with matching value', () => {
+      it('removes each active barang in store with matching value', () => {
         expect(removeItemStub.callCount).to.equal(2);
         expect(removeItemStub.firstCall.args[0]).to.equal(items[1]);
         expect(removeItemStub.secondCall.args[0]).to.equal(items[2]);
@@ -1562,7 +1562,7 @@ describe('choices', () => {
           expect(output).to.eql(instance);
         });
 
-        it('removes each highlighted item in store', () => {
+        it('removes each highlighted barang in store', () => {
           expect(removeItemStub.callCount).to.equal(2);
         });
       });
@@ -1576,7 +1576,7 @@ describe('choices', () => {
           expect(output).to.eql(instance);
         });
 
-        it('triggers event with item value', () => {
+        it('triggers event with barang value', () => {
           expect(triggerChangeStub.callCount).to.equal(2);
           expect(triggerChangeStub.firstCall.args[0]).to.equal(items[0].value);
           expect(triggerChangeStub.secondCall.args[0]).to.equal(items[1].value);
@@ -2279,7 +2279,7 @@ describe('choices', () => {
         instance._store.dispatch.reset();
       });
 
-      describe('when given an item to remove', () => {
+      describe('when given an barang to remove', () => {
         const item = {
           id: 1111,
           value: 'test value',
@@ -2316,7 +2316,7 @@ describe('choices', () => {
           instance._removeItem(item);
         });
 
-        describe('when the item belongs to a group', () => {
+        describe('when the barang belongs to a group', () => {
           const group = {
             id: 1,
             value: 'testing',

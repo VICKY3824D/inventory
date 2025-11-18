@@ -62,7 +62,7 @@ export declare function callback<T extends (this: TA, ...restArgs: unknown[]) =>
  * is unknown or in none intensive code (not called often and small loopable). Else
  * it's preferable to use a regular for() loop and save extra function calls.
  * @param loopable - The object or array to be iterated.
- * @param fn - The function to call for each item.
+ * @param fn - The function to call for each barang.
  * @param [thisArg] - The value of `this` provided for the call to `fn`.
  * @param [reverse] - If true, iterates backward on the loopable.
  */
