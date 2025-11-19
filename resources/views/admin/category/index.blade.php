@@ -1,101 +1,96 @@
 @extends('admin.layouts.master')
 
-@section('title', 'Dashboard')
+@section('title', 'Daftar barang')
 
 @section('css')
+    <link rel="stylesheet" href="{{ asset('assets/extensions/simple-datatables/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/compiled/css/table-datatable.css') }}">
 @endsection
 
 @section('content')
-            <div class="page-heading">
-                <h3>Selamat Datang, Admin!</h3>
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Daftar Barang</h3>
+                <p class="text-subtitle text-muted">Daftar barang pada inventory toko baju</p>
             </div>
-            <div class="page-content">
-                <section class="row">
-                    <div class="col-12 col-lg-12">
-                        <div class="row">
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                                <div class="stats-icon purple mb-2">
-                                                    <i class="iconly-boldWallet"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                                <h6 class="text-muted font-semibold">Total Pesanan</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                                <div class="stats-icon blue">
-                                                    <i class="iconly-boldBuy"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                                <h6 class="text-muted font-semibold">Pesanan Hari Ini</h6>
-                                                <h6 class="font-extrabold mb-0">183.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                                <div class="stats-icon green mb-2">
-                                                    <i class="iconly-boldFolder"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                                <h6 class="text-muted font-semibold">Jumlah Menu</h6>
-                                                <h6 class="font-extrabold mb-0">80.000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body px-4 py-4-5">
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                                <div class="stats-icon blue mb-2">
-                                                    <i class="iconly-boldProfile"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                                <h6 class="text-muted font-semibold">Jumlah Karyawan</h6>
-                                                <h6 class="font-extrabold mb-0">112</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Grafik Penjualan</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="chart-profile-visit"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <a href="{{ route('barangs.create') }}" class="btn btn-sm btn-primary float-end"><i
+                        class="bi bi-plus fw-bold fs-5"></i> Tambah Barang</a>
             </div>
+        </div>
+    </div>
+    <section class="section">
 
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Gambar</th>
+                            <th>Nama Barang</th>
+                            <th>Harga</th>
+                            <th>Ukuran</th>
+                            <th>Warna</th>
+                            <th>Stok</th>
+                            <th>Kategori</th>
+                            <th>Deskripsi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($barangs as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    <img src="{{ asset('img_item_upload/'. $item->img) }}" style="width: 65px; height: 65px;" class="img-fluid rounded-2" alt="" onerror="this.onerror=null;this.src='{{ $item->img }}';">
+                                </td>
+                                <td>{{ $item->nama_barang }}</td>
+                                <td>
+                                    @if($item->latestPrice)
+                                        <i>Rp{{ number_format($item->latestPrice->harga, 0, ',', '.') }}</i>
+                                    @else
+                                        <span class="text-muted">-</span>
+                                    @endif
+                                </td>
+                                <td><b>{{ $item->ukuran }}</b></td>
+                                <td>{{ $item->warna }}</td>
+                                <td>{{ $item->stok }}</td>
+                                <td>{{ $item->kategori->nama_kategori }}</td>
+                                <td>
+                                    {{ Str::limit($item->deskripsi, 50) }}
+                                </td>
+{{--                                <td>--}}
+{{--                                    <span class="badge {{ $item->is_active == 1 ? 'bg-success' : 'text-danger' }}">--}}
+{{--                                        {{ $item->is_active == 1 ? 'Tersedia' : 'Kosong' }}--}}
+{{--                                    </span>--}}
+{{--                                </td>--}}
+                                <td>
+                                    <a href="{{ route('barangs.edit', $item->id) }}" class="btn btn-sm btn-warning me-2">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </a>
+                                    <form action="{{ route('barangs.destroy', $item->id) }} " method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                            <i class="bi bi-trash"></i> Hapus
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
+    <script src="{{ asset('assets/static/js/pages/simple-datatables.js') }}"></script>
 @endsection
