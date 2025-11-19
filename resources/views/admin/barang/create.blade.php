@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="mb-2 mt-2" for="img">Gambar Menu</label>
+                                    <label class="mb-2 mt-2" for="img">Gambar Barang</label>
                                     <input type="file" name="img" class="form-control" id="img" accept="image/*"
                                            required>
                                     <span class="text-muted text-sm">File harus berupa gambar (jpeg/png/jpg/gif/svg) dengan ukuran maksimal 2MB</span>
@@ -78,6 +78,15 @@
                                     <input type="text" name="ukuran" class="form-control" id="ukuran"
                                            placeholder="Masukkan ukuran barang" value="{{ old('ukuran') }}" required>
                                     @error('ukuran')
+                                    <div class="text-danger small mt-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="mb-2 mt-2" for="warna">Warna</label>
+                                    <input type="text" name="warna" class="form-control" id="warna"
+                                           placeholder="Masukkan ukuran barang" value="{{ old('warna') }}" required>
+                                    @error('warna')
                                     <div class="text-danger small mt-1">{{ $message }}</div>
                                     @enderror
                                 </div>

@@ -33,6 +33,7 @@
                             <th>Nama Barang</th>
                             <th>Harga</th>
                             <th>Ukuran</th>
+                            <th>Warna</th>
                             <th>Stok</th>
                             <th>Kategori</th>
                             <th>Deskripsi</th>
@@ -55,6 +56,7 @@
                                     @endif
                                 </td>
                                 <td>{{ $item->ukuran }}</td>
+                                <td>{{ $item->warna }}</td>
                                 <td>{{ $item->stok }}</td>
                                 <td>
                                     <span class="badge bg-info">
@@ -70,12 +72,12 @@
 {{--                                    </span>--}}
 {{--                                </td>--}}
                                 <td>
-                                    <a href="{{-- {{ route('admin.items.edit', $item->id) }} --}}" class="btn btn-sm btn-warning me-2">
+                                    <a href="{{ route('barangs.edit', $item->id) }}" class="btn btn-sm btn-warning me-2">
                                         <i class="bi bi-pencil"></i> Edit
                                     </a>
-                                    <form action="{{-- {{ route('admin.items.destroy', $item->id) }} --}}" method="POST" class="d-inline">
-{{--                                        @csrf--}}
-{{--                                        @method('DELETE')--}}
+                                    <form action="{{ route('barangs.destroy', $item->id) }} " method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                             <i class="bi bi-trash"></i> Hapus
                                         </button>

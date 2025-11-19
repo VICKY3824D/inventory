@@ -18,6 +18,7 @@ class Barang extends Model
         'nama_barang',
         'ukuran',
         'stok',
+        'warna',
         'img',
         'deskripsi',
         'created_by',

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_barang', 200);
             $table->string('ukuran', 100);
             $table->integer('stok')->default(0);
+            $table->string('warna');
             $table->string('img')->nullable();
             $table->text('deskripsi')->nullable();
             $table->timestamps();

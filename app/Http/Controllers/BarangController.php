@@ -112,7 +112,8 @@ class BarangController extends Controller
      */
     public function edit(Barang $barang)
     {
-        return view('admin.barang.edit', compact('barang'));
+        $categories = \App\Models\Category::all();
+        return view('admin.barang.edit', compact('barang', 'categories'));
     }
 
     /**
