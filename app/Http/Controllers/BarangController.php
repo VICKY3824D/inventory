@@ -58,8 +58,10 @@ class BarangController extends Controller
             // Tambahkan created_by jika ada auth
             if (auth()->check()) {
                 $validated['created_by'] = auth()->id();
+            } else {
+                // Jika tidak ada auth, gunakan 1 (superadmin) sebagai default
+                $validated['created_by'] = 1;
             }
-
             // Pisahkan price dari validated
             $price = $validated['price'];
             unset($validated['price']); // Hapus price karena tidak ada di tabel barangs
